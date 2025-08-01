@@ -118,10 +118,10 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
   }
 
   const quickQuestions = [
-    "帮我创造一个哥特风格的角色",
-    "什么是AniGROK平台？",
-    "ANI代币怎么获得？",
-    "如何生成anime NFT？"
+    "Help me create a gothic style character",
+    "What is the AniGROK platform?",
+    "How to get ANI tokens?",
+    "How to generate anime NFTs?"
   ]
 
   if (!isOpen) return null
@@ -201,7 +201,7 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
                 <div className="bg-purple-50 text-gray-800 p-3 rounded-2xl rounded-bl-sm max-w-[80%]">
                   <div className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span className="text-sm">Ani正在思考中...</span>
+                    <span className="text-sm">{t("chat.thinking", "Ani is thinking...")}</span>
                   </div>
                 </div>
               </div>
@@ -213,7 +213,7 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
           {/* Quick Questions */}
           {messages.length === 1 && (
             <div className="p-4 border-t border-gray-100">
-              <p className="text-sm text-gray-600 mb-3">💬 快速开始：</p>
+              <p className="text-sm text-gray-600 mb-3">💬 Quick Start:</p>
               <div className="grid grid-cols-1 gap-2">
                 {quickQuestions.map((question, index) => (
                   <button

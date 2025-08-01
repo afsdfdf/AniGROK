@@ -19,7 +19,7 @@ export function HomepageGallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
   const [likedImages, setLikedImages] = useState<number[]>([])
 
-  // 图片数据 - 使用新生成的项目相关配图
+  // Gallery images data - using new generated project-related images
   const galleryImages: GalleryImage[] = [
     {
       id: 1,
@@ -131,7 +131,7 @@ export function HomepageGallery() {
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="text-center text-white p-3">
                       <Eye className="w-6 h-6 mx-auto mb-2" />
-                      <p className="text-xs font-medium">查看详情</p>
+                      <p className="text-xs font-medium">{t("gallery.viewDetails", "View Details")}</p>
                     </div>
                   </div>
 
@@ -152,7 +152,7 @@ export function HomepageGallery() {
 
                   {/* AI Generated Badge */}
                   <div className="absolute bottom-2 left-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-2 py-1 rounded-full shadow-lg">
-                    AI生成 ✨
+                    {t("gallery.aiGenerated", "AI Generated")} ✨
                   </div>
                 </div>
               </CardContent>
@@ -164,19 +164,19 @@ export function HomepageGallery() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           <div className="text-center">
             <div className="text-3xl font-bold text-purple-600 mb-2">{galleryImages.length}</div>
-            <div className="text-gray-600 font-medium">精品作品</div>
+            <div className="text-gray-600 font-medium">{t("gallery.stats.featured", "Featured Artworks")}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-pink-600 mb-2">{likedImages.length}</div>
-            <div className="text-gray-600 font-medium">收藏作品</div>
+            <div className="text-gray-600 font-medium">{t("gallery.stats.collected", "Collected Artworks")}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">5</div>
-            <div className="text-gray-600 font-medium">AI生成</div>
+            <div className="text-gray-600 font-medium">{t("gallery.stats.aiGenerated", "AI Generated")}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-green-600 mb-2">∞</div>
-            <div className="text-gray-600 font-medium">创作可能</div>
+            <div className="text-gray-600 font-medium">{t("gallery.stats.possibilities", "Creative Possibilities")}</div>
           </div>
         </div>
       </div>
@@ -209,11 +209,11 @@ export function HomepageGallery() {
                 <div className="mb-6">
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full text-purple-700 text-sm font-medium mb-4">
                     <Sparkles className="w-3 h-3" />
-                    <span>作品 #{selectedImage.id}</span>
+                    <span>{t("gallery.modal.artwork", "Artwork")} #{selectedImage.id}</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">AI生成艺术作品</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("gallery.modal.title", "AI Generated Artwork")}</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    <strong>创作提示:</strong> {selectedImage.prompt}
+                    <strong>{t("gallery.modal.prompt", "Creation Prompt")}:</strong> {selectedImage.prompt}
                   </p>
                 </div>
 
@@ -229,32 +229,32 @@ export function HomepageGallery() {
                       }`}
                     >
                       <Heart className={`w-4 h-4 mr-2 ${likedImages.includes(selectedImage.id) ? 'fill-current' : ''}`} />
-                      {likedImages.includes(selectedImage.id) ? '已收藏' : '收藏'}
+                      {likedImages.includes(selectedImage.id) ? t("gallery.modal.collected", "Collected") : t("gallery.modal.collect", "Collect")}
                     </Button>
                     <Button variant="outline" className="flex-1">
                       <Download className="w-4 h-4 mr-2" />
-                      下载
+                      {t("gallery.modal.download", "Download")}
                     </Button>
                   </div>
                   
                   <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white">
                     <Sparkles className="w-4 h-4 mr-2" />
-                    生成类似作品
+                    {t("gallery.modal.generateSimilar", "Generate Similar Artwork")}
                   </Button>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
-                      <div className="text-sm text-gray-500">风格</div>
+                      <div className="text-sm text-gray-500">{t("gallery.modal.style", "Style")}</div>
                       <div className="font-medium">Anime 2D</div>
                     </div>
                     <div>
-                      <div className="text-sm text-gray-500">分辨率</div>
+                      <div className="text-sm text-gray-500">{t("gallery.modal.resolution", "Resolution")}</div>
                       <div className="font-medium">1024×1024</div>
                     </div>
                     <div>
-                      <div className="text-sm text-gray-500">模型</div>
+                      <div className="text-sm text-gray-500">{t("gallery.modal.model", "Model")}</div>
                       <div className="font-medium">Kolors</div>
                     </div>
                   </div>

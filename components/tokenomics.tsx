@@ -69,7 +69,7 @@ export function Tokenomics() {
             <span className="text-xs sm:text-sm">Tokenomics</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">AIMINT Token</span>{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">ANI Token</span>{" "}
             Economic Model
           </h2>
           <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto">
@@ -275,7 +275,7 @@ export function Tokenomics() {
         <div className="bg-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-slate-700/50 backdrop-blur-sm">
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Token Utility</h3>
-            <p className="text-base sm:text-lg text-slate-400">Multiple application scenarios of AIMINT tokens in the ecosystem</p>
+            <p className="text-base sm:text-lg text-slate-400">Multiple application scenarios of ANI tokens in the ecosystem</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -283,7 +283,7 @@ export function Tokenomics() {
               {
                 icon: Zap,
                 title: "Computing Payment",
-                description: "Use AIMINT tokens to pay for AI computing resources with discount benefits",
+                description: "Use ANI tokens to pay for AI computing resources with discount benefits",
                 gradient: "from-cyan-500 to-blue-500",
               },
               {
@@ -301,7 +301,7 @@ export function Tokenomics() {
               {
                 icon: Award,
                 title: "Creator Incentives",
-                description: "Quality content creators receive AIMINT token rewards",
+                description: "Quality content creators receive ANI token rewards",
                 gradient: "from-orange-500 to-amber-500",
               },
               {

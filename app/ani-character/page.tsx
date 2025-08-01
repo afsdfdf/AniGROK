@@ -40,11 +40,11 @@ export default function AniCharacterPage() {
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Ani (艾妮)
+              Ani
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            AniGROK平台的虚拟偶像与数字伙伴，她将陪伴你探索anime NFT的奇妙世界
+            AniGROK platform's virtual idol and digital companion, she will accompany you to explore the wonderful world of anime NFTs
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export default function AniCharacterPage() {
               <CardHeader className="p-8">
                 <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                   <Sparkles className="w-6 h-6 text-purple-600" />
-                  角色设定
+                  Character Design
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-8 pt-0 space-y-6">
@@ -99,29 +99,29 @@ export default function AniCharacterPage() {
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">外观特征</h4>
-                      <p className="text-gray-600">俏皮的双马尾，哥特风格裙装，个性渔网袜</p>
+                      <h4 className="font-semibold text-gray-900">Appearance</h4>
+                      <p className="text-gray-600">Playful twin tails, gothic style dress, stylish fishnet stockings</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-pink-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">性格特点</h4>
-                      <p className="text-gray-600">既可爱又酷炫，融合二次元美学与未来科技</p>
+                      <h4 className="font-semibold text-gray-900">Personality</h4>
+                      <p className="text-gray-600">Both cute and cool, blending 2D aesthetics with futuristic technology</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">特殊能力</h4>
-                      <p className="text-gray-600">深度理解用户创意，协助生成完美的anime NFT</p>
+                      <h4 className="font-semibold text-gray-900">Special Abilities</h4>
+                      <p className="text-gray-600">Deep understanding of user creativity, assisting in generating perfect anime NFTs</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-violet-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">使命愿景</h4>
-                      <p className="text-gray-600">成为连接现实与虚拟世界的桥梁，推广2D文化</p>
+                      <h4 className="font-semibold text-gray-900">Mission & Vision</h4>
+                      <p className="text-gray-600">Becoming a bridge connecting reality and virtual worlds, promoting 2D culture</p>
                     </div>
                   </div>
                 </div>
@@ -132,16 +132,16 @@ export default function AniCharacterPage() {
               <CardHeader className="p-8">
                 <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                   <MessageCircle className="w-6 h-6 text-purple-600" />
-                  互动功能
+                  Interactive Features
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-8 pt-0">
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: "💬", title: "智能对话", desc: "理解你的创意需求" },
-                    { icon: "🎨", title: "艺术指导", desc: "提供专业创作建议" },
-                    { icon: "🎌", title: "文化导师", desc: "分享二次元文化知识" },
-                    { icon: "🤝", title: "虚拟伙伴", desc: "陪伴你的创作之旅" }
+                    { icon: "💬", title: "Smart Chat", desc: "Understand your creative needs" },
+                    { icon: "🎨", title: "Art Guidance", desc: "Provide professional creative advice" },
+                    { icon: "🎌", title: "Culture Mentor", desc: "Share 2D culture knowledge" },
+                    { icon: "🤝", title: "Virtual Partner", desc: "Accompany your creative journey" }
                   ].map((feature, index) => (
                     <div key={index} className="text-center p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
                       <div className="text-2xl mb-2">{feature.icon}</div>
@@ -157,35 +157,35 @@ export default function AniCharacterPage() {
 
         {/* Character Evolution Timeline */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Ani的进化历程</h3>
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Ani's Evolution Journey</h3>
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               {
                 phase: "Phase 1",
-                title: "诞生",
+                title: "Birth",
                 date: "2025 Q3",
-                description: "Ani角色设计完成，首次与用户见面",
+                description: "Ani character design completed, first meeting with users",
                 icon: "🌟"
               },
               {
                 phase: "Phase 2", 
-                title: "学习",
+                title: "Learning",
                 date: "2025 Q4",
-                description: "通过用户互动学习，提升理解能力",
+                description: "Learning through user interaction, improving understanding",
                 icon: "📚"
               },
               {
                 phase: "Phase 3",
-                title: "进化",
+                title: "Evolution",
                 date: "2026 Q1",
-                description: "获得更多虚拟助手功能，深度个性化",
+                description: "Gaining more virtual assistant features, deep personalization",
                 icon: "🚀"
               },
               {
                 phase: "Phase 4",
-                title: "元宇宙",
+                title: "Metaverse",
                 date: "2026 Q2+",
-                description: "进入元宇宙，成为真正的虚拟偶像",
+                description: "Enter the metaverse, become a true virtual idol",
                 icon: "🌐"
               }
             ].map((phase, index) => (
@@ -207,7 +207,7 @@ export default function AniCharacterPage() {
           <CardHeader className="p-8 text-center">
             <CardTitle className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-3">
               <MessageCircle className="w-6 h-6 text-purple-600" />
-              与Ani对话
+                                Chat with Ani
             </CardTitle>
           </CardHeader>
           <CardContent className="p-8 pt-0">
@@ -219,12 +219,12 @@ export default function AniCharacterPage() {
                     A
                   </div>
                   <div className="flex-1 bg-purple-50 p-3 rounded-lg">
-                    <p className="text-gray-700">你好！我是Ani，你的虚拟waifu助手！想要创造什么样的anime角色呢？ ✨</p>
+                    <p className="text-gray-700">Hello! I'm Ani, your virtual waifu assistant! What kind of anime character would you like to create? ✨</p>
                   </div>
                 </div>
                 <div className="flex gap-3 justify-end">
                   <div className="flex-1 bg-blue-50 p-3 rounded-lg text-right max-w-xs">
-                    <p className="text-gray-700">我想要一个哥特风格的魔法师角色</p>
+                    <p className="text-gray-700">I want a gothic style wizard character</p>
                   </div>
                   <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-bold">
                     U
@@ -235,7 +235,7 @@ export default function AniCharacterPage() {
                     A
                   </div>
                   <div className="flex-1 bg-purple-50 p-3 rounded-lg">
-                    <p className="text-gray-700">太棒了！让我们创造一个神秘的哥特魔法师。你希望ta有什么特殊的魔法能力吗？🔮</p>
+                    <p className="text-gray-700">Awesome! Let's create a mysterious gothic wizard. What special magical abilities would you like them to have? 🔮</p>
                   </div>
                 </div>
               </div>
@@ -247,12 +247,12 @@ export default function AniCharacterPage() {
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  立即与Ani聊天 ✨
+                  Chat with Ani Now ✨
                 </Button>
               </div>
               
               <div className="text-center text-sm text-purple-600 mt-4 font-medium">
-                🤖 由Gemini AI驱动 • 实时智能对话
+                🤖 Powered by Gemini AI • Real-time intelligent conversation
               </div>
             </div>
           </CardContent>

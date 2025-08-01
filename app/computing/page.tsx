@@ -138,7 +138,7 @@ export default function ComputingPage() {
                     src="/logo1.png"
                     width={40}
                     height={40}
-                    alt="AIMINT Logo"
+                    alt="AniGROK Logo"
                     className="mr-3"
                   />
                 </div>

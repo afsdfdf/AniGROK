@@ -37,18 +37,18 @@ export default function AIGeneratorPage() {
     setGeneratedImage(null)
     
     const messages = [
-      "Ani正在理解你的创意...",
-      "连接AI生成服务...",
-      "分析动漫角色特征中...",
-      "调整哥特风格参数...",
-      "生成独特的anime元素...",
-      "即将完成创作..."
+      "Ani is understanding your creativity...",
+      "Connecting to AI generation service...",
+      "Analyzing anime character features...",
+      "Adjusting gothic style parameters...",
+      "Generating unique anime elements...",
+      "Creation almost complete..."
     ]
     
     setGenerationMessages(messages)
     setCurrentMessageIndex(0)
     
-    // 显示进度消息
+    // Show progress messages
     const messageInterval = setInterval(() => {
       setCurrentMessageIndex(prev => {
         if (prev < messages.length - 1) {
@@ -61,10 +61,10 @@ export default function AIGeneratorPage() {
     }, 800)
     
     try {
-      // 构建anime风格的prompt
+      // Build anime-style prompt
       const animePrompt = `anime style, ${prompt}, high quality, detailed, 2D art, manga style, colorful, cute`
       
-      // 调用真实的图片生成API
+      // Call real image generation API
           const response = await fetch('/api/generate-image', {
             method: 'POST',
             headers: {
@@ -88,20 +88,20 @@ export default function AIGeneratorPage() {
         setGeneratedImage(data.data.images[0].url)
         setCurrentMessageIndex(messages.length - 1)
         
-        // 显示状态信息
+        // Show status information
         if (data.data.fallback) {
           console.log('📱 Using fallback image:', data.data.message)
-          // 可以在UI中显示降级提示
+          // Can show fallback hint in UI
         } else {
           console.log('✅ Real AI generation successful!')
         }
         
         setTimeout(() => {
-          setCurrentMessageIndex(prev => prev + 1) // 触发"完成"状态
+          setCurrentMessageIndex(prev => prev + 1) // Trigger "complete" status
         }, 500)
       } else {
         console.error('Image generation failed:', data.error)
-        // 降级到演示图片
+        // Fallback to demo images
         const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/nft-creation.png", "/images/token-economy.png"]
         const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
         setGeneratedImage(randomImage)
@@ -111,7 +111,7 @@ export default function AIGeneratorPage() {
       console.error('API call failed:', error)
       clearInterval(messageInterval)
       
-      // 降级到演示图片
+      // Fallback to demo images
       const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/nft-creation.png", "/images/token-economy.png"]
       const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
       setGeneratedImage(randomImage)
@@ -154,7 +154,7 @@ export default function AIGeneratorPage() {
               </span>
             </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            与Ani一起创造独一无二的动漫角色NFT，让你的创意通过AI变为现实
+            Create unique anime character NFTs with Ani, turn your creativity into reality through AI
             </p>
           </div>
 
@@ -165,17 +165,17 @@ export default function AIGeneratorPage() {
               <CardHeader className="p-8">
                 <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                   <Wand2 className="w-6 h-6 text-purple-600" />
-                  创作你的动漫角色
+                  Create Your Anime Character
                   </CardTitle>
                 </CardHeader>
               <CardContent className="p-8 pt-0 space-y-6">
                   {/* Prompt Input */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    描述你想要的角色 *
+                    Describe Your Desired Character *
                   </label>
                     <Textarea
-                    placeholder="例如: 哥特风格的动漫女孩，双马尾，渔网袜，既可爱又酷炫"
+                    placeholder="Example: Gothic style anime girl, twin tails, fishnet stockings, both cute and cool"
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
                     className="min-h-[120px] resize-none"
@@ -185,7 +185,7 @@ export default function AIGeneratorPage() {
                 {/* Preset Prompts */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-3">
-                    快速选择模板
+                    Quick Template Selection
                   </label>
                   <div className="grid grid-cols-1 gap-2">
                     {presetPrompts.map((preset, index) => (
@@ -209,18 +209,18 @@ export default function AIGeneratorPage() {
                     {isGenerating ? (
                       <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                      Ani正在创作中...
+                                              Ani is creating...
                       </>
                     ) : (
                       <>
                       <Sparkles className="w-5 h-5 mr-2" />
-                      生成动漫NFT
+                      Generate Anime NFT
                       </>
                     )}
                   </Button>
 
                 <div className="text-xs text-gray-500 text-center">
-                  ⚡ 使用ANI代币支付生成费用 • 🎌 专业动漫风格训练
+                  ⚡ Use ANI tokens to pay generation fees • 🎌 Professional anime style training
                     </div>
                 </CardContent>
               </Card>
@@ -228,25 +228,25 @@ export default function AIGeneratorPage() {
             {/* Generation Settings */}
             <Card className="bg-white border border-gray-200 rounded-3xl shadow-xl">
               <CardHeader className="p-6">
-                <CardTitle className="text-lg font-bold text-gray-900">高级设置</CardTitle>
+                <CardTitle className="text-lg font-bold text-gray-900">Advanced Settings</CardTitle>
                 </CardHeader>
               <CardContent className="p-6 pt-0 space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">艺术风格</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Art Style</label>
                     <select className="w-full p-2 border border-gray-300 rounded-lg">
-                      <option>哥特风格</option>
-                      <option>萌系可爱</option>
-                      <option>赛博朋克</option>
-                      <option>传统和风</option>
+                      <option>Gothic Style</option>
+                      <option>Cute Moe</option>
+                      <option>Cyberpunk</option>
+                      <option>Traditional Japanese</option>
                     </select>
                         </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">画质</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Quality</label>
                     <select className="w-full p-2 border border-gray-300 rounded-lg">
-                      <option>高清 (推荐)</option>
-                      <option>超高清</option>
-                      <option>标准</option>
+                      <option>HD (Recommended)</option>
+                      <option>Ultra HD</option>
+                      <option>Standard</option>
                     </select>
                       </div>
                   </div>
@@ -261,7 +261,7 @@ export default function AIGeneratorPage() {
               <CardHeader className="p-8">
                 <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                   <Heart className="w-6 h-6 text-pink-600" />
-                  Ani的创作结果
+                  Ani's Creation Results
                   </CardTitle>
                 </CardHeader>
               <CardContent className="p-8 pt-0">
@@ -269,7 +269,7 @@ export default function AIGeneratorPage() {
                   <div className="aspect-square bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-purple-200">
                     <div className="text-center">
                       <Sparkles className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                      <p className="text-gray-500">输入提示词开始创作</p>
+                      <p className="text-gray-500">Enter prompt to start creating</p>
                                 </div>
                               </div>
                 ) : isGenerating ? (
@@ -278,14 +278,14 @@ export default function AIGeneratorPage() {
                       <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                       <p className="text-purple-700 font-medium">
                         {currentMessageIndex >= generationMessages.length 
-                          ? "完成！你的专属waifu已诞生✨" 
-                          : (generationMessages[currentMessageIndex] || "GROK AI正在创作中...")
+                          ? "Complete! Your exclusive waifu is born ✨" 
+                          : (generationMessages[currentMessageIndex] || "GROK AI is creating...")
                         }
                       </p>
                       <p className="text-gray-500 text-sm mt-2">
                         {currentMessageIndex >= generationMessages.length 
-                          ? "创作完成，正在加载图片..." 
-                          : "Ani正在为你精心制作"
+                          ? "Creation complete, loading image..." 
+                          : "Ani is carefully crafting for you"
                         }
                       </p>
                       <div className="flex justify-center mt-3">
@@ -320,17 +320,17 @@ export default function AIGeneratorPage() {
                     <div className="flex gap-2">
                       <Button className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
                         <Download className="w-4 h-4 mr-2" />
-                        铸造NFT
+                        Mint NFT
                       </Button>
                       <Button variant="outline" className="flex-1">
                         <Share2 className="w-4 h-4 mr-2" />
-                        分享
+                        Share
                         </Button>
                         <Button 
                         variant="outline" 
                         className="px-3"
                         onClick={() => window.location.href = '/ani-character'}
-                        title="与Ani聊天"
+                        title="Chat with Ani"
                       >
                         <MessageCircle className="w-4 h-4" />
                         </Button>
@@ -343,7 +343,7 @@ export default function AIGeneratorPage() {
             {/* Demo Gallery */}
             <Card className="bg-white border border-gray-200 rounded-3xl shadow-xl">
               <CardHeader className="p-6">
-                <CardTitle className="text-lg font-bold text-gray-900">展示作品集</CardTitle>
+                <CardTitle className="text-lg font-bold text-gray-900">Portfolio Gallery</CardTitle>
               </CardHeader>
               <CardContent className="p-6 pt-0">
                 <div className="grid grid-cols-3 gap-3">
@@ -370,11 +370,11 @@ export default function AIGeneratorPage() {
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-3xl max-w-4xl mx-auto">
             <h3 className="text-xl font-bold text-purple-800 mb-4">
-              🎨 AI生成技术演示
+              🎨 AI Generation Technology Demo
             </h3>
             <p className="text-gray-700">
-              这里展示了AniGROK的AI生成技术原型。通过与Ani的对话和这个演示界面，
-              你可以体验到未来anime NFT创作的无限可能。立即与Ani聊天了解更多！
+              Here showcases AniGROK's AI generation technology prototype. Through conversations with Ani and this demo interface,
+              you can experience the infinite possibilities of future anime NFT creation. Chat with Ani now to learn more!
             </p>
           </div>
         </div>

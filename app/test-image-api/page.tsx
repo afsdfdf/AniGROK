@@ -25,7 +25,7 @@ export default function TestImageApiPage() {
   const [apiResponse, setApiResponse] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // 测试数据
+  // Test data
   const testData: ApiResponse = {
     "images": [
       {
@@ -66,10 +66,10 @@ export default function TestImageApiPage() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            图片生成API测试页面
+            Image Generation API Test Page
           </h1>
           <p className="text-lg text-gray-600">
-            测试图片生成API的响应数据和图片显示功能
+            Test image generation API response data and image display functionality
           </p>
         </div>
 
@@ -79,53 +79,53 @@ export default function TestImageApiPage() {
             disabled={loading}
             className="bg-blue-600 hover:bg-blue-700"
           >
-            {loading ? '加载中...' : '加载测试数据'}
+            {loading ? 'Loading...' : 'Load Test Data'}
           </Button>
           <Button 
             onClick={clearData} 
             variant="outline"
             disabled={!apiResponse}
           >
-            清除数据
+            Clear Data
           </Button>
         </div>
 
         {apiResponse && (
           <div className="space-y-6">
-            {/* API响应信息 */}
+            {/* API Response Info */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <span>API响应信息</span>
-                  <Badge variant="secondary">成功</Badge>
+                  <span>API Response Info</span>
+                  <Badge variant="secondary">Success</Badge>
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-500">推理时间</p>
+                    <p className="text-sm font-medium text-gray-500">Inference Time</p>
                     <p className="text-lg font-semibold">{apiResponse.timings.inference}s</p>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-500">种子值</p>
+                    <p className="text-sm font-medium text-gray-500">Seed Value</p>
                     <p className="text-lg font-semibold">{apiResponse.seed}</p>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-500">共享ID</p>
+                    <p className="text-sm font-medium text-gray-500">Share ID</p>
                     <p className="text-lg font-semibold">{apiResponse.shared_id}</p>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-500">创建时间</p>
+                    <p className="text-sm font-medium text-gray-500">Created Time</p>
                     <p className="text-lg font-semibold">{formatTimestamp(apiResponse.created)}</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            {/* 生成的图片 */}
+            {/* Generated Images */}
             <Card>
               <CardHeader>
-                <CardTitle>生成的图片</CardTitle>
+                <CardTitle>Generated Images</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,7 +134,7 @@ export default function TestImageApiPage() {
                       <div className="relative group">
                         <img
                           src={image.url}
-                          alt={`生成的图片 ${index + 1}`}
+                          alt={`Generated Image ${index + 1}`}
                           className="w-full h-64 object-cover rounded-lg shadow-md transition-transform group-hover:scale-105"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
@@ -145,7 +145,7 @@ export default function TestImageApiPage() {
                       </div>
                       <div className="space-y-2">
                         <p className="text-sm font-medium text-gray-700">
-                          图片 {index + 1}
+                          Image {index + 1}
                         </p>
                         <p className="text-xs text-gray-500 break-all">
                           {image.url}
@@ -156,7 +156,7 @@ export default function TestImageApiPage() {
                           onClick={() => window.open(image.url, '_blank')}
                           className="w-full"
                         >
-                          在新窗口打开
+                          Open in New Window
                         </Button>
                       </div>
                     </div>
@@ -165,10 +165,10 @@ export default function TestImageApiPage() {
               </CardContent>
             </Card>
 
-            {/* 原始JSON数据 */}
+            {/* Raw JSON Data */}
             <Card>
               <CardHeader>
-                <CardTitle>原始JSON响应</CardTitle>
+                <CardTitle>Raw JSON Response</CardTitle>
               </CardHeader>
               <CardContent>
                 <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
@@ -185,10 +185,10 @@ export default function TestImageApiPage() {
               <div className="space-y-4">
                 <div className="text-6xl">🖼️</div>
                 <h3 className="text-xl font-semibold text-gray-700">
-                  点击上方按钮加载测试数据
+                  Click the button above to load test data
                 </h3>
                 <p className="text-gray-500">
-                  这里将显示图片生成API的响应数据和生成的图片
+                  Image generation API response data and generated images will be displayed here
                 </p>
               </div>
             </CardContent>

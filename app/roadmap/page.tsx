@@ -5,7 +5,7 @@ export default function RoadmapPage() {
   const roadmapData = [
     {
       quarter: "2025 Q3",
-      title: "项目上线 (Project Launch)",
+      title: "Project Launch",
       status: "upcoming",
       progress: 30,
       icon: Rocket,
@@ -24,7 +24,7 @@ export default function RoadmapPage() {
     },
     {
       quarter: "2025 Q4",
-      title: "NFT 市场启动 (NFT Market Launch)",
+      title: "NFT Market Launch",
       status: "planned",
       progress: 0,
       icon: Globe,
@@ -39,7 +39,7 @@ export default function RoadmapPage() {
     },
     {
       quarter: "2026 Q1",
-      title: "合作拓展 (Partnership Expansion)",
+      title: "Partnership Expansion",
       status: "planned",
       progress: 0,
       icon: Users,
@@ -54,7 +54,7 @@ export default function RoadmapPage() {
     },
     {
       quarter: "2026 Q2",
-      title: "DAO 治理 (DAO Governance)",
+      title: "DAO Governance",
       status: "planned",
       progress: 0,
       icon: Target,
@@ -130,7 +130,7 @@ export default function RoadmapPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
                 <Rocket className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">AIMINT Roadmap</span>
+              <span className="text-xl font-bold text-gray-900">AniGROK Roadmap</span>
             </div>
           </div>
         </div>

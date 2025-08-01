@@ -84,25 +84,25 @@ export default function MarketplacePage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-purple-700 font-medium mb-6 shadow-lg">
             <ShoppingBag className="w-4 h-4" />
-            <span>Demo展示</span>
+                            <span>Demo Showcase</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              NFT市场演示
+              NFT Market Demo
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            预览未来的anime NFT交易市场，体验去中心化的数字艺术收藏生态系统
+                          Preview the future anime NFT trading market, experience decentralized digital art collection ecosystem
           </p>
         </div>
 
         {/* Market Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {[
-            { label: "演示作品", value: "3件", icon: "💎" },
-            { label: "风格类型", value: "多样化", icon: "👨‍🎨" },
-            { label: "技术展示", value: "完整", icon: "🎌" },
-            { label: "用户体验", value: "流畅", icon: "💰" }
+                          { label: "Demo Artworks", value: "3 pieces", icon: "💎" },
+                          { label: "Style Types", value: "Diverse", icon: "👨‍🎨" },
+                          { label: "Tech Demo", value: "Complete", icon: "🎌" },
+                          { label: "User Experience", value: "Smooth", icon: "💰" }
           ].map((stat, index) => (
             <Card key={index} className="text-center p-6 bg-white border border-gray-200 rounded-3xl shadow-lg">
               <div className="text-3xl mb-2">{stat.icon}</div>
@@ -119,7 +119,7 @@ export default function MarketplacePage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="搜索anime NFT..."
+                placeholder="Search anime NFT..."
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 disabled
               />
@@ -127,7 +127,7 @@ export default function MarketplacePage() {
           </div>
           <Button variant="outline" className="flex items-center gap-2" disabled>
             <Filter className="w-4 h-4" />
-            筛选
+                          Filter
           </Button>
         </div>
 
@@ -152,7 +152,7 @@ export default function MarketplacePage() {
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
             <Star className="w-6 h-6 text-purple-600" />
-            精选作品预览
+            Featured Artworks Preview
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredNFTs.map((nft) => (
@@ -194,7 +194,7 @@ export default function MarketplacePage() {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm text-gray-600">价格</div>
+                      <div className="text-sm text-gray-600">Price</div>
                       <div className="text-lg font-bold text-purple-600">{nft.price}</div>
                     </div>
                     <div className="flex items-center gap-1 text-gray-500">
@@ -204,7 +204,7 @@ export default function MarketplacePage() {
                   </div>
 
                   <Button className="w-full mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white" disabled>
-                    即将开放购买
+                    Coming Soon to Purchase
                   </Button>
                 </CardContent>
               </Card>
@@ -217,20 +217,20 @@ export default function MarketplacePage() {
           {[
             {
               icon: Zap,
-              title: "ANI代币支付",
-              description: "使用ANI代币购买NFT，享受交易费折扣",
+                              title: "ANI Token Payment",
+                              description: "Use ANI tokens to buy NFTs, enjoy trading fee discounts",
               color: "purple"
             },
             {
               icon: Crown,
-              title: "创作者版税",
-              description: "每次二级市场交易，原创者获得版税收入",
+                              title: "Creator Royalties",
+                              description: "Every secondary market trade, original creators receive royalty income",
               color: "pink"
             },
             {
               icon: ShoppingBag,
-              title: "安全交易",
-              description: "BSC智能合约保障，交易安全透明",
+                              title: "Secure Trading",
+                              description: "BSC smart contract guarantee, secure and transparent trading",
               color: "indigo"
             }
           ].map((feature, index) => (
@@ -251,10 +251,10 @@ export default function MarketplacePage() {
         {/* Demo Info Banner */}
         <Card className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl shadow-xl text-center">
           <CardContent className="p-12">
-            <h3 className="text-3xl font-bold mb-4">🎌 NFT市场愿景展示</h3>
+            <h3 className="text-3xl font-bold mb-4">🎌 NFT Market Vision Demo</h3>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              这里展示了未来NFT交易市场的用户界面和功能设计，
-              体验去中心化的anime数字艺术收藏生态系统。
+              Here showcases the future NFT trading market's user interface and feature design,
+              experience the decentralized anime digital art collection ecosystem.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -262,7 +262,7 @@ export default function MarketplacePage() {
                 onClick={() => window.location.href = '/ai-generator'}
               >
                 <Heart className="w-5 h-5 mr-2" />
-                体验AI生成
+                Try AI Generation
               </Button>
               <Button 
                 variant="outline" 
@@ -270,7 +270,7 @@ export default function MarketplacePage() {
                 onClick={() => window.location.href = '/ani-character'}
               >
                 <Crown className="w-5 h-5 mr-2" />
-                认识Ani
+                Meet Ani
               </Button>
             </div>
           </CardContent>

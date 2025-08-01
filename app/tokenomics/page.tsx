@@ -85,16 +85,16 @@ export default function TokenomicsPage() {
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-purple-700 font-medium mb-6 shadow-lg">
             <Coins className="w-4 h-4" />
-            <span>经济模型设计</span>
+                            <span>Economic Model Design</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              ANI代币
+              ANI Token
             </span>{" "}
-            经济模型
+                          Economic Model
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            基于BSC区块链的双重用途代币设计，结合Meme文化与实用功能，为AniGROK生态系统提供经济支撑
+                          Dual-purpose token design based on BSC blockchain, combining Meme culture with practical functions to provide economic support for the AniGROK ecosystem
           </p>
           
           {/* Token Key Info */}

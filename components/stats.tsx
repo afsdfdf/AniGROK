@@ -111,7 +111,7 @@ export function Stats() {
             Real-time Ecosystem Data
           </h2>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-            Transparent on-chain data showcasing the real activity and growth potential of the AIMINT ecosystem
+            Transparent on-chain data showcasing the real activity and growth potential of the AniGROK ecosystem
           </p>
         </div>
 

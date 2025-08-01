@@ -4,23 +4,25 @@ import { useState, useEffect } from "react"
 import { Heart, MessageCircle, Sparkles } from "lucide-react"
 import Image from "next/image"
 import { AniChat } from "./ani-chat"
+import { useTranslation } from "@/lib/i18n"
 
 export function AniFloatingCharacter() {
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
   const [message, setMessage] = useState("")
   const [showBubble, setShowBubble] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)
 
   const messages = [
-    "こんにちは！我是Ani ✨",
-    "想要创造专属的waifu吗？",
-    "一起探索anime NFT的世界吧！",
-    "期待与你在AniGROK见面 🎌",
-    "GROK AI会理解你的每个创意 💜",
-    "ANI代币即将在BSC上线！",
-    "2025年8月2日，不见不散～",
-    "让我们一起推广二次元文化！",
-    "你的创意值得被铸造成NFT ✨"
+    t("floatingAni.messages.0", "Konnichiwa! I'm Ani ✨"),
+    t("floatingAni.messages.1", "Want to create your exclusive waifu?"),
+    t("floatingAni.messages.2", "Let's explore the anime NFT world together!"),
+    t("floatingAni.messages.3", "Looking forward to meeting you at AniGROK 🎌"),
+    t("floatingAni.messages.4", "GROK AI will understand your every creative idea 💜"),
+    t("floatingAni.messages.5", "ANI token launching soon on BSC!"),
+    t("floatingAni.messages.6", "August 2nd, 2025 - See you there~"),
+    t("floatingAni.messages.7", "Let's promote 2D culture together!"),
+    t("floatingAni.messages.8", "Your creativity deserves to be minted as NFT ✨")
   ]
 
   useEffect(() => {
@@ -99,7 +101,7 @@ export function AniFloatingCharacter() {
 
         {/* Interaction hint */}
         <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/75 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-          点击与Ani聊天 ✨
+                              Click to chat with Ani ✨
         </div>
 
         {/* Chat Button */}

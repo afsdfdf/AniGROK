@@ -37,7 +37,15 @@
       "generating": "AI Creating...",
       "ready": "Click the button below to start AI creation ✨",
       "generateButton": "🎨 Click to Generate",
-      "mintButton": "Mint NFT 🎌"
+      "mintButton": "Mint NFT 🎌",
+      "generatingSteps": {
+        "understanding": "Ani is understanding your creativity...",
+        "analyzing": "Analyzing anime character features...",
+        "adjusting": "Adjusting style parameters...",
+        "generating": "Generating anime elements...",
+        "completing": "Completing creation..."
+      },
+      "complete": "Complete! Your exclusive waifu is born ✨"
     }
   },
   "features": {
@@ -99,7 +107,25 @@
     },
     "stats": {
       "views": "Views",
-      "likes": "Likes"
+      "likes": "Likes",
+      "featured": "Featured Artworks",
+      "collected": "Collected Artworks",
+      "aiGenerated": "AI Generated",
+      "possibilities": "Creative Possibilities"
+    },
+    "viewDetails": "View Details",
+    "aiGenerated": "AI Generated",
+    "modal": {
+      "artwork": "Artwork",
+      "title": "AI Generated Artwork",
+      "prompt": "Creation Prompt",
+      "collected": "Collected",
+      "collect": "Collect",
+      "download": "Download",
+      "generateSimilar": "Generate Similar Artwork",
+      "style": "Style",
+      "resolution": "Resolution",
+      "model": "Model"
     }
   },
   "demo": {
@@ -237,11 +263,99 @@
       "phase4": "Global Expansion"
     }
   },
+  "community": {
+    "badge": "Thriving Community",
+    "title": "Join Our Creative",
+    "subtitle": "Community",
+    "description": "Connect with thousands of anime creators, share your art, and earn rewards in our vibrant ecosystem powered by AI and blockchain technology.",
+    "featuredCreators": "Featured Creators",
+    "testimonials": "What Our Community Says",
+    "cta": {
+      "title": "Ready to Join Our Community?",
+      "description": "Start creating, sharing, and earning with thousands of anime artists worldwide!",
+      "create": "Start Creating",
+      "explore": "Explore Gallery"
+    }
+  },
+  "tech": {
+    "badge": "Advanced Technology",
+    "title": "Cutting-Edge",
+    "subtitle": "Technology Stack",
+    "description": "Powered by advanced AI, secured by blockchain, and designed for the future of digital art creation.",
+    "learnMore": "Learn More",
+    "specifications": "Technical Specifications",
+    "partnerships": "Technology Partners"
+  },
+  "footer": {
+    "newsletter": {
+      "badge": "Stay Updated",
+      "title": "Join Our Community",
+      "description": "Get the latest updates on AniGROK platform, new features, and exclusive anime NFT drops.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "privacy": "We respect your privacy. Unsubscribe at any time."
+    },
+    "platform": {
+      "title": "Platform",
+      "aiGenerator": "AI Generator",
+      "marketplace": "Marketplace",
+      "aniCharacter": "Ani Character",
+      "computing": "Computing"
+    },
+    "resources": {
+      "title": "Resources",
+      "whitepaper": "Whitepaper",
+      "roadmap": "Roadmap",
+      "tokenomics": "Tokenomics",
+      "developers": "Developer Docs"
+    },
+    "community": {
+      "title": "Community",
+      "about": "About Us",
+      "team": "Team",
+      "dao": "DAO Governance",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Support",
+      "help": "Help Center",
+      "contact": "Contact Us",
+      "status": "Status",
+      "security": "Security"
+    },
+    "brand": {
+      "description": "The world's first AI-driven anime NFT platform. Create, share, and trade unique anime characters with the power of GROK AI and blockchain technology.",
+      "chatWithAni": "Chat with Ani"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "disclaimer": "Disclaimer"
+    },
+    "copyright": "All rights reserved.",
+    "madeWith": "Made with",
+    "forAnime": "for anime lovers",
+    "additionalInfo": "AniGROK is built on Binance Smart Chain. ANI tokens are utility tokens for platform governance and features."
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error occurred",
     "tryAgain": "Try Again",
     "comingSoon": "Coming Soon",
     "learnMore": "Learn More"
+  },
+  "floatingAni": {
+    "messages": {
+      "0": "Konnichiwa! I'm Ani ✨",
+      "1": "Want to create your exclusive waifu?",
+      "2": "Let's explore the anime NFT world together!",
+      "3": "Looking forward to meeting you at AniGROK 🎌",
+      "4": "GROK AI will understand your every creative idea 💜",
+      "5": "ANI token launching soon on BSC!",
+      "6": "August 2nd, 2025 - See you there~",
+      "7": "Let's promote 2D culture together!",
+      "8": "Your creativity deserves to be minted as NFT ✨"
+    }
   }
 }

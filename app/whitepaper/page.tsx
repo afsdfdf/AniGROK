@@ -53,7 +53,7 @@ export default function WhitepaperPage() {
   ]
 
   const competitorData = [
-    { name: "AIMINT", aiCapability: 95, web3Integration: 90, userExperience: 88, scalability: 92 },
+    { name: "AniGROK", aiCapability: 95, web3Integration: 90, userExperience: 88, scalability: 92 },
     { name: "OpenSea", aiCapability: 20, web3Integration: 85, userExperience: 80, scalability: 75 },
     { name: "MidJourney", aiCapability: 90, web3Integration: 10, userExperience: 85, scalability: 70 },
     { name: "SuperRare", aiCapability: 30, web3Integration: 80, userExperience: 75, scalability: 65 },
@@ -157,7 +157,7 @@ export default function WhitepaperPage() {
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-2xl border border-blue-100">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Project Overview</h3>
               <p className="text-gray-700 leading-relaxed">
-                AIMINT is the world's first decentralized creative ecosystem that deeply integrates AI-generated content with blockchain technology. Through the revolutionary concept of "Algorithm as Asset", we tokenize AI models, creative processes, and generated content, building a complete creator economy loop.
+                AniGROK is the world's first decentralized creative ecosystem that deeply integrates AI-generated content with blockchain technology. Through the revolutionary concept of "Algorithm as Asset", we tokenize AI models, creative processes, and generated content, building a complete creator economy loop.
               </p>
             </div>
 
@@ -299,7 +299,7 @@ export default function WhitepaperPage() {
           <CardContent className="p-8 pt-0 space-y-8">
             <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-2xl border border-purple-100">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Layered Architecture Design</h3>
-              <p className="text-gray-700 mb-6">AIMINT adopts a modular layered architecture to ensure system scalability, security, and high performance.</p>
+              <p className="text-gray-700 mb-6">AniGROK adopts a modular layered architecture to ensure system scalability, security, and high performance.</p>
               <div className="flex justify-center">
                 <div className="relative w-full max-w-md aspect-square">
                   <Image
@@ -525,7 +525,7 @@ export default function WhitepaperPage() {
                         </div>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900 font-semibold">50%</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">500M</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">150M</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-blue-600 font-medium">33%</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-purple-600 font-medium">0 months</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-green-600 font-medium">24 months</td>
@@ -539,7 +539,7 @@ export default function WhitepaperPage() {
                         </div>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900 font-semibold">15%</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">150M</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">45M</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-blue-600 font-medium">20%</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-purple-600 font-medium">12 months</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-green-600 font-medium">24 months</td>
@@ -553,7 +553,7 @@ export default function WhitepaperPage() {
                         </div>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900 font-semibold">15%</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">150M</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">45M</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-blue-600 font-medium">20%</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-purple-600 font-medium">12 months</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-green-600 font-medium">24 months</td>
@@ -567,7 +567,7 @@ export default function WhitepaperPage() {
                         </div>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900 font-semibold">10%</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">100M</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">30M</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-blue-600 font-medium">20%</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-purple-600 font-medium">0 months</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-green-600 font-medium">18 months</td>
@@ -581,7 +581,7 @@ export default function WhitepaperPage() {
                         </div>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900 font-semibold">10%</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">100M</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">30M</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-blue-600 font-medium">10%</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-purple-600 font-medium">12 months</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-green-600 font-medium">36 months</td>
@@ -590,7 +590,7 @@ export default function WhitepaperPage() {
                     <tr className="bg-gray-50">
                       <td className="px-4 py-3 whitespace-nowrap font-bold text-gray-900">Total</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center font-bold text-gray-900">100%</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-center font-bold text-gray-900">1.0B</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-center font-bold text-gray-900">300M</td>
                       <td className="px-4 py-3 whitespace-nowrap text-center"></td>
                       <td className="px-4 py-3 whitespace-nowrap text-center"></td>
                       <td className="px-4 py-3 whitespace-nowrap text-center"></td>
@@ -601,10 +601,10 @@ export default function WhitepaperPage() {
               </div>
               <div className="mt-4 text-sm text-gray-700">
                 <p className="mb-2">
-                  <strong>Total Token Supply: 1,000,000,000 (1B) AIMINT Tokens</strong>
+                  <strong>Total Token Supply: 300,000,000 (300M) ANI Tokens</strong>
                 </p>
                 <p className="mb-2">
-                  <strong>Initial Circulating Supply: 255,000,000 (255M) AIMINT Tokens</strong> - 25.5% of total supply unlocked at Token Generation Event (TGE)
+                  <strong>Initial Circulating Supply: 76,500,000 (76.5M) ANI Tokens</strong> - 25.5% of total supply unlocked at Token Generation Event (TGE)
                 </p>
                 <p>
                   The token release schedule is designed to ensure long-term project sustainability and ecosystem growth while providing sufficient liquidity for market operations.
@@ -857,7 +857,7 @@ export default function WhitepaperPage() {
           <CardContent className="p-8 lg:p-12 text-center">
             <h2 className="text-3xl font-bold mb-6">Conclusion</h2>
             <p className="text-xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-              AIMINT is committed to building the world's largest AI+Web3 creative ecosystem. Through technological innovation and economic incentives, 
+              AniGROK is committed to building the world's largest AI+Web3 creative ecosystem. Through technological innovation and economic incentives, 
               we enable every creator to receive the value they deserve in the digital age. We believe that the concept of "Algorithm as Asset" 
               will redefine the value of creation and forge a bright future for digital creativity.
             </p>
@@ -877,7 +877,7 @@ export default function WhitepaperPage() {
 
         {/* Footer */}
         <div className="text-center text-gray-500 text-sm">
-          <p>© 2025 AIMINT Foundation. This whitepaper is for informational purposes only and does not constitute investment advice.</p>
+          <p>© 2025 AniGROK Foundation. This whitepaper is for informational purposes only and does not constitute investment advice.</p>
           <p className="mt-2">Last Updated: January 2025 | Version: 2.0 | Language: English</p>
         </div>
       </div>

@@ -29,7 +29,7 @@ export function Hero() {
     return () => clearInterval(timer)
   }, [slides.length])
 
-  // 移除自动生成功能 - 改为用户主动触发
+      // Removed auto-generation feature - changed to user-triggered
 
   const demoPrompts = [
     "Gothic anime girl with twin tails, fishnet stockings, cute and cool",
@@ -41,27 +41,27 @@ export function Hero() {
   const startDemoGeneration = async () => {
     if (isGenerating) return
     
-    // 随机选择一个提示词
+    // Randomly select a prompt
     const randomPrompt = demoPrompts[Math.floor(Math.random() * demoPrompts.length)]
     setDemoPrompt(randomPrompt)
     setIsGenerating(true)
     
     const steps = [
-      "Ani正在理解你的创意...",
-      "分析动漫角色特征中...",
-      "调整风格参数...",
-      "生成anime元素...",
-      "完成创作..."
+      t("hero.demo.generatingSteps.understanding", "Ani is understanding your creativity..."),
+      t("hero.demo.generatingSteps.analyzing", "Analyzing anime character features..."),
+      t("hero.demo.generatingSteps.adjusting", "Adjusting style parameters..."),
+      t("hero.demo.generatingSteps.generating", "Generating anime elements..."),
+      t("hero.demo.generatingSteps.completing", "Completing creation...")
     ]
     
-    // 逐步显示生成过程
+    // Show generation process step by step
     for (let i = 0; i < steps.length; i++) {
       setGenerationStep(steps[i])
       await new Promise(resolve => setTimeout(resolve, 800))
     }
     
     try {
-      // 调用真实的图片生成API
+      // Call real image generation API
       const response = await fetch('/api/generate-image', {
         method: 'POST',
         headers: {
@@ -79,20 +79,20 @@ export function Hero() {
       if (data.success && data.data.images && data.data.images.length > 0) {
         setGeneratedImage(data.data.images[0].url)
       } else {
-        // 降级到演示图片
+        // Fallback to demo images
         const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/gallery-sample-1.png", "/images/gallery-sample-3.png"]
         const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
         setGeneratedImage(randomImage)
       }
     } catch (error) {
       console.error('Demo generation failed:', error)
-      // 降级到演示图片
+      // Fallback to demo images
       const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/gallery-sample-1.png", "/images/gallery-sample-3.png"]
       const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
       setGeneratedImage(randomImage)
     }
     
-    setGenerationStep("完成！专属waifu已诞生✨")
+    setGenerationStep(t("hero.demo.complete", "Complete! Your exclusive waifu is born ✨"))
     setTimeout(() => {
       setIsGenerating(false)
       setGenerationStep("")
@@ -198,7 +198,7 @@ export function Hero() {
               <div className="absolute top-4 right-4 z-10">
                 <Image
                   src="/logo1.png"
-                  alt="AIMINT Transparent Logo"
+                  alt="AniGROK Transparent Logo"
                   width={40}
                   height={40}
                   className="w-8 h-8 opacity-30 hover:opacity-50 transition-opacity duration-300"
@@ -243,7 +243,7 @@ export function Hero() {
                 <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl border border-purple-200">
                   <div className={`w-6 h-6 border-2 border-purple-600 ${isGenerating ? 'border-t-transparent animate-spin' : 'border-t-purple-600'} rounded-full`}></div>
                   <span className="text-purple-700 font-medium">
-                    {isGenerating ? (generationStep || "GROK AI is creating your waifu...") : "点击下方按钮开始AI创作 ✨"}
+                    {isGenerating ? (generationStep || "GROK AI is creating your waifu...") : t("hero.demo.ready", "Click the button below to start AI creation ✨")}
                   </span>
                 </div>
 
@@ -253,7 +253,7 @@ export function Hero() {
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
                         <div className="w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
-                        <p className="text-purple-700 text-sm font-medium">正在生成中...</p>
+                        <p className="text-purple-700 text-sm font-medium">{t("hero.demo.generating", "AI Creating...")}</p>
                       </div>
                     </div>
                   ) : (
@@ -276,7 +276,7 @@ export function Hero() {
                     disabled={isGenerating}
                     className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isGenerating ? "AI创作中..." : "🎨 点击生成"}
+                    {isGenerating ? t("hero.demo.generating", "AI Creating...") : t("hero.demo.generateButton", "🎨 Click to Generate")}
                   </Button>
                   <Button className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                     Mint NFT 🎌

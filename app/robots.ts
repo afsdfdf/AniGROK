@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://aimint.io/sitemap.xml',
+    sitemap: 'https://anigrok.io/sitemap.xml',
   }
 } 

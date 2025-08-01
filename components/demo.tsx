@@ -56,11 +56,11 @@ export function Demo() {
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Experience{" "}
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">AIMINT</span>{" "}
+            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">AniGROK</span>{" "}
             in Action
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Understand how AIMINT transforms your creative ideas into valuable digital assets through real
+            Understand how AniGROK transforms your creative ideas into valuable digital assets through real
             demonstrations of our core platform features.
           </p>
         </div>
@@ -123,7 +123,7 @@ export function Demo() {
                 <div className="absolute top-4 right-4 z-10">
                   <Image
                     src="/logo1.png"
-                    alt="AIMINT Transparent Logo"
+                    alt="AniGROK Transparent Logo"
                     width={40}
                     height={40}
                     className="w-8 h-8 opacity-30 hover:opacity-50 transition-opacity duration-300"
@@ -143,7 +143,7 @@ export function Demo() {
                         className="w-7 h-7"
                       />
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-gray-900">AIMINT Studio</span>
+                        <span className="font-semibold text-gray-900">AniGROK Studio</span>
                       </div>
                     </div>
                     <div className="flex gap-2">
@@ -195,7 +195,7 @@ export function Demo() {
                 <div className="absolute top-2 right-2">
                   <Image
                     src="/logo1.png"
-                    alt="AIMINT Transparent Logo"
+                    alt="AniGROK Transparent Logo"
                     width={24}
                     height={24}
                     className="w-4 h-4 opacity-20"
@@ -215,7 +215,7 @@ export function Demo() {
                 <div className="absolute top-2 right-2">
                   <Image
                     src="/logo1.png"
-                    alt="AIMINT Transparent Logo"
+                    alt="AniGROK Transparent Logo"
                     width={24}
                     height={24}
                     className="w-4 h-4 opacity-20"

@@ -21,29 +21,29 @@ export function EnhancedDemo() {
   const demos = [
     {
       title: "Anime NFT Creation",
-      description: "GROK AI理解你的创意，生成独特动漫角色",
+      description: "GROK AI understands your creativity, generates unique anime characters",
       get prompt() { return customPrompt },
       steps: [
-        { title: "创意输入", desc: "描述你想要的动漫角色", time: "1s" },
-        { title: "GROK理解", desc: "AI深度理解二次元文化", time: "2s" },
-        { title: "角色生成", desc: "专业动漫风格渲染", time: "2s" },
-        { title: "NFT铸造", desc: "BSC链上自动铸造", time: "2s" },
+        { title: "Creative Input", desc: "Describe your desired anime character", time: "1s" },
+        { title: "GROK Understanding", desc: "AI deeply understands 2D culture", time: "2s" },
+        { title: "Character Generation", desc: "Professional anime style rendering", time: "2s" },
+        { title: "NFT Minting", desc: "Automatic minting on BSC chain", time: "2s" },
       ],
-      result: "独一无二的动漫NFT",
+      result: "Unique Anime NFT",
       icon: Sparkles,
       placeholderImage: "/images/ai-technology.png",
       resultImage: "/images/ani-showcase.png",
       generationStages: [
-        { text: "Ani正在理解你的创意...", icon: "🤔" },
-        { text: "加载专业动漫训练模型...", icon: "🧠" },
-        { text: "生成角色基础框架...", icon: "👤" },
-        { text: "添加哥特风格元素...", icon: "🖤" },
-        { text: "绘制双马尾发型...", icon: "💇‍♀️" },
-        { text: "添加渔网袜细节...", icon: "🎨" },
-        { text: "调整可爱与酷炫平衡...", icon: "⚖️" },
-        { text: "你的专属waifu诞生了！", icon: "🎌" },
+        { text: "Ani is understanding your creativity...", icon: "🤔" },
+        { text: "Loading professional anime training models...", icon: "🧠" },
+        { text: "Generating character basic framework...", icon: "👤" },
+        { text: "Adding gothic style elements...", icon: "🖤" },
+        { text: "Drawing twin-tail hairstyle...", icon: "💇‍♀️" },
+        { text: "Adding fishnet stockings details...", icon: "🎨" },
+        { text: "Balancing cute and cool elements...", icon: "⚖️" },
+        { text: "Your exclusive waifu is born!", icon: "🎌" },
       ],
-      buttonText: "创造我的Waifu"
+      buttonText: "Create My Waifu"
     },
     {
       title: "Music Creation",
@@ -111,15 +111,15 @@ export function EnhancedDemo() {
     setApiError(null)
 
     try {
-      // 只有AI艺术创作使用真实API，其他保持模拟
+      // Only AI art creation uses real API, others remain simulated
       if (activeTab === 0) {
-        // 真实AI图片生成
+        // Real AI image generation
         for (let stage = 0; stage < currentDemo.generationStages.length; stage++) {
           setCurrentStep(stage)
           const stageProgress = ((stage + 1) / currentDemo.generationStages.length) * 100
           
           if (stage === currentDemo.generationStages.length - 2) {
-            // 在最后阶段调用真实API
+            // Call real API in the final stage
             const response = await fetch('/api/generate-image', {
               method: 'POST',
               headers: {
@@ -136,18 +136,18 @@ export function EnhancedDemo() {
             })
 
             if (!response.ok) {
-              throw new Error(`API请求失败: ${response.status}`);
+              throw new Error(`API request failed: ${response.status}`);
             }
 
             const result = await response.json();
             if (result.success && result.data.images && result.data.images.length > 0) {
               setGeneratedImageUrl(result.data.images[0].url);
             } else {
-              throw new Error('API返回数据格式错误');
+              throw new Error('API returned incorrect data format');
             }
           }
           
-          // 动画进度条
+          // Animate progress bar
           for (let i = Math.floor(progress); i <= stageProgress; i += 2) {
             setProgress(i)
             await new Promise((resolve) => setTimeout(resolve, 50))
@@ -156,7 +156,7 @@ export function EnhancedDemo() {
           await new Promise((resolve) => setTimeout(resolve, 300))
         }
       } else {
-        // 其他演示保持模拟
+        // Other demos remain simulated
         for (let stage = 0; stage < currentDemo.generationStages.length; stage++) {
           setCurrentStep(stage)
           const stageProgress = ((stage + 1) / currentDemo.generationStages.length) * 100
@@ -173,8 +173,8 @@ export function EnhancedDemo() {
       setGeneratedContent("Generated successfully!")
       setShowResult(true)
     } catch (error) {
-      console.error('生成失败:', error)
-      setApiError(error instanceof Error ? error.message : '生成失败，请重试')
+      console.error('Generation failed:', error)
+      setApiError(error instanceof Error ? error.message : 'Generation failed, please try again')
     } finally {
       setIsGenerating(false)
     }
@@ -193,7 +193,7 @@ export function EnhancedDemo() {
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Experience{" "}
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">AIMINT</span>{" "}
+            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">AniGROK</span>{" "}
             in Action
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -277,7 +277,7 @@ export function EnhancedDemo() {
                 <div className="absolute top-4 right-4 z-10">
                   <Image
                     src="/logo1.png"
-                    alt="AIMINT Transparent Logo"
+                    alt="AniGROK Transparent Logo"
                     width={40}
                     height={40}
                     className="w-8 h-8 opacity-30 hover:opacity-50 transition-opacity duration-300"
@@ -483,7 +483,7 @@ export function EnhancedDemo() {
                 <div className="absolute top-2 right-2">
                   <Image
                     src="/logo1.png"
-                    alt="AIMINT Transparent Logo"
+                    alt="AniGROK Transparent Logo"
                     width={24}
                     height={24}
                     className="w-4 h-4 opacity-20"
@@ -506,7 +506,7 @@ export function EnhancedDemo() {
                 <div className="absolute top-2 right-2">
                   <Image
                     src="/logo1.png"
-                    alt="AIMINT Transparent Logo"
+                    alt="AniGROK Transparent Logo"
                     width={24}
                     height={24}
                     className="w-4 h-4 opacity-20"

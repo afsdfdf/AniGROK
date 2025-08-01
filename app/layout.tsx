@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "AniGROK - AI NFT Platform for Anime Culture",
@@ -15,27 +16,27 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://aimint.io'),
+  metadataBase: new URL('https://anigrok.io'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "AIMINT - Algorithm as Asset, Forging Future Creation",
+    title: "AniGROK - AI-Driven Anime NFT Platform",
     description: "Transform AI-generated content into valuable digital assets through blockchain technology",
-    url: 'https://aimint.io',
-    siteName: 'AIMINT',
+    url: 'https://anigrok.io',
+    siteName: 'AniGROK',
     images: [
       {
         url: '/logo1.png',
         width: 1200,
         height: 630,
-        alt: 'AIMINT - AI + Web3 Innovation',
+        alt: 'AniGROK - AI + Web3 Innovation',
       },
       {
         url: '/logo1.png',
         width: 800,
         height: 600,
-        alt: 'AIMINT Logo',
+        alt: 'AniGROK Logo',
       },
     ],
     locale: 'en_US',
@@ -43,10 +44,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AIMINT - Algorithm as Asset, Forging Future Creation',
+    title: 'AniGROK - AI-Driven Anime NFT Platform',
     description: 'Transform AI-generated content into valuable digital assets through blockchain technology',
-    images: ['https://aimint.io/twitter-image.jpg'],
-    creator: '@AIMINTOfficial',
+    images: ['https://anigrok.io/twitter-image.jpg'],
+    creator: '@AniGROKOfficial',
   },
   robots: {
     index: true,
@@ -98,6 +99,7 @@ export default function RootLayout({
       <body className="font-sans">
         <Navigation />
         <div className="pt-16">{children}</div>
+        <Footer />
       </body>
     </html>
   )
