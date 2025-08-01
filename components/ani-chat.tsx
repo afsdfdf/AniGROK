@@ -36,12 +36,20 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }, 100)
   }
 
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  useEffect(() => {
+    if (isLoading) {
+      scrollToBottom()
+    }
+  }, [isLoading])
 
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isLoading) return
@@ -56,6 +64,7 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
     setMessages(prev => [...prev, userMessage])
     setInputValue('')
     setIsLoading(true)
+    scrollToBottom()
 
     try {
       // Send request to API route
@@ -77,6 +86,7 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
           timestamp: new Date()
         }
         setMessages(prev => [...prev, aniMessage])
+        scrollToBottom()
         
         // Show network status if offline
         if (data.isOffline) {
@@ -94,6 +104,7 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
         timestamp: new Date()
       }
       setMessages(prev => [...prev, errorMessage])
+      scrollToBottom()
     } finally {
       setIsLoading(false)
     }
