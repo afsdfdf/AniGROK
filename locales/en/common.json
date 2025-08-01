@@ -146,7 +146,9 @@
       "legal": "Legal"
     },
     "social": {
-      "follow": "Follow Us"
+      "follow": "Follow Us",
+      "telegram": "Join Telegram",
+      "telegramMembers": "14,427 members"
     },
     "copyright": "© 2025 AniGROK. All rights reserved."
   },

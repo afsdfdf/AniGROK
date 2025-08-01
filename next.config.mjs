@@ -8,7 +8,10 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    domains: ['localhost'],
   },
+  output: 'standalone',
+  trailingSlash: true,
 }
 
 export default nextConfig
