@@ -2,8 +2,10 @@
 
 import { TrendingUp, Users, Zap, Globe, DollarSign, Activity } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useTranslation } from "@/lib/i18n"
 
 export function InteractiveStats() {
+  const { t } = useTranslation()
   const [counters, setCounters] = useState({
     users: 0,
     models: 0,
@@ -70,54 +72,54 @@ export function InteractiveStats() {
   const stats = [
     {
       icon: Users,
-      label: "Anime Community",
-      value: "Growing",
-      change: "全球二次元爱好者",
+      label: t("stats.interactive.animeComm.label"),
+      value: t("stats.interactive.animeComm.value"),
+      change: t("stats.interactive.animeComm.change"),
       color: "from-purple-500 to-pink-500",
       bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
       borderColor: "border-purple-200/50",
     },
     {
       icon: Zap,
-      label: "GROK AI引擎",
-      value: "Ready",
-      change: "理解动漫文化",
+      label: t("stats.interactive.grokAI.label"),
+      value: t("stats.interactive.grokAI.value"),
+      change: t("stats.interactive.grokAI.change"),
       color: "from-blue-500 to-indigo-500",
       bgColor: "bg-gradient-to-br from-blue-50 to-indigo-50",
       borderColor: "border-blue-200/50",
     },
     {
       icon: TrendingUp,
-      label: "AI对话功能",
-      value: "已上线",
-      change: "智能聊天体验",
+      label: t("stats.interactive.aiChat.label"),
+      value: t("stats.interactive.aiChat.value"),
+      change: t("stats.interactive.aiChat.change"),
       color: "from-emerald-500 to-green-500",
       bgColor: "bg-gradient-to-br from-emerald-50 to-green-50",
       borderColor: "border-emerald-200/50",
     },
     {
       icon: DollarSign,
-      label: "技术演示",
-      value: "完成",
-      change: "NFT生成原型",
+      label: t("stats.interactive.techDemo.label"),
+      value: t("stats.interactive.techDemo.value"),
+      change: t("stats.interactive.techDemo.change"),
       color: "from-orange-500 to-amber-500",
       bgColor: "bg-gradient-to-br from-orange-50 to-amber-50",
       borderColor: "border-orange-200/50",
     },
     {
       icon: Globe,
-      label: "项目进展",
-      value: "活跃开发",
-      change: "持续优化中",
+      label: t("stats.interactive.progress.label"),
+      value: t("stats.interactive.progress.value"),
+      change: t("stats.interactive.progress.change"),
       color: "from-cyan-500 to-teal-500",
       bgColor: "bg-gradient-to-br from-cyan-50 to-teal-50",
       borderColor: "border-cyan-200/50",
     },
     {
       icon: Activity,
-      label: "Ani角色",
-      value: "Ready",
-      change: "虚拟waifu助手",
+      label: t("stats.interactive.aniChar.label"),
+      value: t("stats.interactive.aniChar.value"),
+      change: t("stats.interactive.aniChar.change"),
       color: "from-rose-500 to-pink-500",
       bgColor: "bg-gradient-to-br from-rose-50 to-pink-50",
       borderColor: "border-rose-200/50",
@@ -133,10 +135,10 @@ export function InteractiveStats() {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-3 sm:mb-4">
-            Platform Vision & Capabilities
+            {t("stats.title", "Platform Vision & Capabilities")}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-            Building the future of AI-generated content and blockchain technology integration
+            {t("features.subtitle", "Building the future of AI-generated content and blockchain technology integration")}
           </p>
         </div>
 

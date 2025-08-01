@@ -15,6 +15,7 @@ interface GalleryImage {
 }
 
 export function HomepageGallery() {
+  const { t } = useTranslation()
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
   const [likedImages, setLikedImages] = useState<number[]>([])
 
@@ -97,16 +98,15 @@ export function HomepageGallery() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-200/50 rounded-full text-purple-700 font-medium mb-6 shadow-lg backdrop-blur-sm">
             <Sparkles className="w-4 h-4" />
-            <span>AI生成作品集</span>
+            <span>{t("gallery.badge")}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
-            Ani的{" "}
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              创作展示
+              {t("gallery.heroTitle")}
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-            欣赏由AniGROK AI生成的精美anime角色作品，每一幅都是独一无二的艺术创作
+            {t("gallery.heroDescription")}
           </p>
         </div>
 

@@ -88,6 +88,9 @@
     "title": "创作画廊",
     "subtitle": "探索AI技术创造的精彩动漫艺术作品",
     "viewAll": "查看全部",
+    "badge": "AI生成作品集",
+    "heroTitle": "Ani的创作展示",
+    "heroDescription": "欣赏由AniGROK AI生成的精美anime角色作品，每一幅都是独一无二的艺术创作",
     "filter": {
       "all": "全部",
       "cute": "可爱",
@@ -126,6 +129,38 @@
     "community": {
       "label": "社区成员",
       "value": "10万+"
+    },
+    "interactive": {
+      "animeComm": {
+        "label": "Anime Community",
+        "value": "Growing",
+        "change": "全球二次元爱好者"
+      },
+      "grokAI": {
+        "label": "GROK AI引擎",
+        "value": "Ready",
+        "change": "理解动漫文化"
+      },
+      "aiChat": {
+        "label": "AI对话功能",
+        "value": "已上线",
+        "change": "智能聊天体验"
+      },
+      "techDemo": {
+        "label": "技术演示",
+        "value": "完成",
+        "change": "NFT生成原型"
+      },
+      "progress": {
+        "label": "项目进展",
+        "value": "活跃开发",
+        "change": "持续优化中"
+      },
+      "aniChar": {
+        "label": "Ani角色",
+        "value": "Ready",
+        "change": "虚拟waifu助手"
+      }
     }
   },
   "chat": {
