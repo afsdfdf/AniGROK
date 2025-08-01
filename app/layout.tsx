@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
+import { Navigation } from "@/components/navigation"
 
 export const metadata: Metadata = {
   title: "AniGROK - AI NFT Platform for Anime Culture",
@@ -95,7 +96,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans">
-        {children}
+        <Navigation />
+        <div className="pt-16">{children}</div>
       </body>
     </html>
   )
