@@ -1,18 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 
-const inter = Inter({ subsets: ["latin"] })
-
 export const metadata: Metadata = {
-  title: "AIMINT - Algorithm as Asset, Forging Future Creation",
-  description: "Transform AI-generated content into on-chain assets, building a decentralized computing market and model economy ecosystem. Join the Web3 AI revolution.",
-  keywords: ["AI", "Web3", "NFT", "Blockchain", "Machine Learning", "DeFi", "Crypto", "Digital Assets", "Smart Contracts"],
-  authors: [{ name: "AIMINT Team" }],
-  creator: "AIMINT Foundation",
-  publisher: "AIMINT Foundation",
+  title: "AniGROK - AI NFT Platform for Anime Culture",
+  description: "Create unique anime characters with AI technology. Bridge anime culture and blockchain technology with AniGROK's innovative NFT platform.",
+  keywords: ["AI", "Anime", "NFT", "Blockchain", "GROK AI", "Ani Character", "Web3", "Digital Art", "AniGROK"],
+  authors: [{ name: "AniGROK Team" }],
+  creator: "AniGROK Platform",
+  publisher: "AniGROK Platform",
   formatDetection: {
     email: false,
     address: false,
@@ -98,7 +95,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="font-sans">
         <Navigation />
         <div className="pt-16">{children}</div>
       </body>
