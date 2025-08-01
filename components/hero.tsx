@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, Sparkles, TrendingUp, Users, Zap, MessageCircle, ExternalLink } from "lucide-react"
+import { ArrowRight, Play, Sparkles, TrendingUp, Users, Zap, MessageCircle } from "lucide-react"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { AniChat } from "./ani-chat"
@@ -101,15 +101,7 @@ export function Hero() {
 
   return (
     <>
-    <section 
-      className="relative min-h-screen overflow-hidden"
-      style={{
-        background: `linear-gradient(to bottom right, rgba(139, 69, 19, 0.1), rgba(75, 0, 130, 0.1)), url('/images/hero-anime-banner.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.05)_50%,transparent_75%)] bg-[length:40px_40px]" />
 
@@ -176,28 +168,6 @@ export function Hero() {
                 <Zap className="mr-2 h-5 w-5" />
                 {t("hero.generateButton")}
               </Button>
-            </div>
-
-            {/* Telegram Community CTA */}
-            <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">AniGROK全球社区</h3>
-                    <p className="text-sm text-gray-600">{t("footer.social.telegramMembers")} • 活跃讨论</p>
-                  </div>
-                </div>
-                <Button
-                  onClick={() => window.open('https://t.me/Ani_bsc', '_blank')}
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
-                >
-                  <span>{t("footer.social.telegram")}</span>
-                  <ExternalLink className="w-4 h-4" />
-                </Button>
-              </div>
             </div>
 
             {/* Quick Stats */}

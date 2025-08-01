@@ -10,6 +10,8 @@ const nextConfig = {
     unoptimized: true,
     domains: ['localhost'],
   },
+  output: 'standalone',
+  trailingSlash: true,
 }
 
 export default nextConfig
