@@ -1,17 +1,25 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, Sparkles, TrendingUp, Users, Zap } from "lucide-react"
+import { ArrowRight, Play, Sparkles, TrendingUp, Users, Zap, MessageCircle } from "lucide-react"
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import { AniChat } from "./ani-chat"
+import { useTranslation } from "@/lib/i18n"
 
 export function Hero() {
+  const { t } = useTranslation()
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isChatOpen, setIsChatOpen] = useState(false)
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [generatedImage, setGeneratedImage] = useState("/images/generated-sample-1.png")
+  const [demoPrompt, setDemoPrompt] = useState("Gothic anime girl with twin tails, fishnet stockings, cute and cool")
+  const [generationStep, setGenerationStep] = useState("")
 
   const slides = [
-    "AI-generated artworks instantly minted as NFTs",
-    "Decentralized computing network reduces costs by 60%",
-    "Global creators share model revenue distribution",
+    t("hero.slides.0"),
+    t("hero.slides.1"),
+    t("hero.slides.2"),
   ]
 
   useEffect(() => {
@@ -21,8 +29,87 @@ export function Hero() {
     return () => clearInterval(timer)
   }, [slides.length])
 
+  // 移除自动生成功能 - 改为用户主动触发
+
+  const demoPrompts = [
+    "Gothic anime girl with twin tails, fishnet stockings, cute and cool",
+    "Kawaii cat girl with purple hair, wearing maid outfit",
+    "Cyberpunk anime warrior with neon armor and glowing eyes",
+    "Elegant anime princess in traditional Japanese kimono"
+  ]
+
+  const startDemoGeneration = async () => {
+    if (isGenerating) return
+    
+    // 随机选择一个提示词
+    const randomPrompt = demoPrompts[Math.floor(Math.random() * demoPrompts.length)]
+    setDemoPrompt(randomPrompt)
+    setIsGenerating(true)
+    
+    const steps = [
+      "Ani正在理解你的创意...",
+      "分析动漫角色特征中...",
+      "调整风格参数...",
+      "生成anime元素...",
+      "完成创作..."
+    ]
+    
+    // 逐步显示生成过程
+    for (let i = 0; i < steps.length; i++) {
+      setGenerationStep(steps[i])
+      await new Promise(resolve => setTimeout(resolve, 800))
+    }
+    
+    try {
+      // 调用真实的图片生成API
+      const response = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: `anime style, ${randomPrompt}, high quality, detailed, 2D art, manga style, colorful, cute`,
+          model: 'Kwai-Kolors/Kolors',
+          image_size: '1024x1024'
+        }),
+      })
+      
+      const data = await response.json()
+      
+      if (data.success && data.data.images && data.data.images.length > 0) {
+        setGeneratedImage(data.data.images[0].url)
+      } else {
+        // 降级到演示图片
+        const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/gallery-sample-1.png", "/images/gallery-sample-3.png"]
+        const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
+        setGeneratedImage(randomImage)
+      }
+    } catch (error) {
+      console.error('Demo generation failed:', error)
+      // 降级到演示图片
+      const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/gallery-sample-1.png", "/images/gallery-sample-3.png"]
+      const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
+      setGeneratedImage(randomImage)
+    }
+    
+    setGenerationStep("完成！专属waifu已诞生✨")
+    setTimeout(() => {
+      setIsGenerating(false)
+      setGenerationStep("")
+    }, 2000)
+  }
+
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
+    <>
+    <section 
+      className="relative min-h-screen overflow-hidden"
+      style={{
+        background: `linear-gradient(to bottom right, rgba(139, 69, 19, 0.1), rgba(75, 0, 130, 0.1)), url('/images/hero-background.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.05)_50%,transparent_75%)] bg-[length:40px_40px]" />
 
@@ -44,17 +131,17 @@ export function Hero() {
           {/* Left Content */}
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-blue-700 font-medium shadow-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-purple-700 font-medium shadow-lg">
               <Sparkles className="w-4 h-4" />
-              <span>AI + Web3 Innovation Fusion</span>
+              <span>{t("hero.badge")}</span>
             </div>
 
             {/* Main Heading */}
             <div className="space-y-6">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight">
-                <span className="block">AIMINT</span>
-                <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Algorithm as Asset
+                <span className="block">{t("hero.title")}</span>
+                <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  {t("hero.subtitle")}
                 </span>
               </h1>
 
@@ -68,20 +155,39 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-              Transform AI-generated content into on-chain assets, building a decentralized computing market and model
-              economy ecosystem. Make every creative idea a valuable digital asset.
+              {t("hero.description")}
             </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button 
+                onClick={() => setIsChatOpen(true)}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              >
+                <MessageCircle className="mr-3 h-6 w-6" />
+                {t("hero.chatButton")}
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-2 border-purple-300 text-purple-700 hover:bg-purple-50 px-6 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                onClick={() => window.location.href = '/ai-generator'}
+              >
+                <Zap className="mr-2 h-5 w-5" />
+                {t("hero.generateButton")}
+              </Button>
+            </div>
 
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
               {[
-                { icon: Users, label: "Community Focus", value: "Growing" },
-                { icon: Zap, label: "AI Innovation", value: "Advanced" },
-                { icon: TrendingUp, label: "Future Vision", value: "Bright" },
+                { icon: Users, label: t("hero.quickStats.community"), value: t("hero.quickStats.communityValue") },
+                { icon: Zap, label: t("hero.quickStats.ai"), value: t("hero.quickStats.aiValue") },
+                { icon: TrendingUp, label: t("hero.quickStats.future"), value: t("hero.quickStats.futureValue") },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="flex justify-center mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
                       <stat.icon className="w-5 h-5 text-white" />
                     </div>
                   </div>
@@ -112,16 +218,16 @@ export function Hero() {
                 <div className="flex items-center gap-3">
                   <Image
                     src="/logo1.png"
-                    alt="AI Creation Studio Logo"
+                    alt="AniGROK Studio Logo"
                     width={32}
                     height={32}
                     className="w-8 h-8"
                   />
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-gray-900">AI Creation Studio</span>
+                      <span className="font-semibold text-gray-900">AniGROK Studio</span>
                     </div>
-                    <div className="text-sm text-gray-500">Real-time Minting Demo</div>
+                    <div className="text-sm text-gray-500">Anime NFT Generator</div>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -135,32 +241,55 @@ export function Hero() {
               <div className="space-y-4">
                 {/* Input Area */}
                 <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                  <div className="text-sm text-gray-600 mb-2">Enter Creative Prompt</div>
+                  <div className="text-sm text-gray-600 mb-2">Enter Your Anime Prompt</div>
                   <div className="bg-white p-3 rounded-lg border border-gray-200 text-gray-800 shadow-sm">
-                    "A cat floating in space, cyberpunk style, neon effects"
+                    "{demoPrompt}"
                   </div>
                 </div>
 
                 {/* Processing */}
-                <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl border border-blue-200">
-                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                  <span className="text-blue-700 font-medium">AI is generating artwork...</span>
+                <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl border border-purple-200">
+                  <div className={`w-6 h-6 border-2 border-purple-600 ${isGenerating ? 'border-t-transparent animate-spin' : 'border-t-purple-600'} rounded-full`}></div>
+                  <span className="text-purple-700 font-medium">
+                    {isGenerating ? (generationStep || "GROK AI is creating your waifu...") : "点击下方按钮开始AI创作 ✨"}
+                  </span>
                 </div>
 
                 {/* Result Preview */}
                 <div className="relative h-48 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border border-purple-200">
-                  <Image
-                    src="/images/cat.png"
-                    alt="AI Generated Cat in Space - Cyberpunk Style"
-                    fill
-                    className="object-contain rounded-xl"
-                  />
+                  {isGenerating ? (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+                        <p className="text-purple-700 text-sm font-medium">正在生成中...</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={generatedImage}
+                      alt="AI Generated Anime Character - AniGROK Style"
+                      fill
+                      className="object-contain rounded-xl transition-all duration-500"
+                    />
+                  )}
+                  <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                    Ani's Creation ✨
+                  </div>
                 </div>
 
-                {/* Mint Button */}
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  Mint as NFT
-                </Button>
+                {/* Action Buttons */}
+                <div className="flex gap-2">
+                  <Button 
+                    onClick={startDemoGeneration}
+                    disabled={isGenerating}
+                    className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isGenerating ? "AI创作中..." : "🎨 点击生成"}
+                  </Button>
+                  <Button className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    Mint NFT 🎌
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -174,5 +303,9 @@ export function Hero() {
         </div>
       </div>
     </section>
+
+    {/* Chat Modal */}
+    <AniChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+    </>
   )
 }

@@ -192,7 +192,7 @@ export default function ComputingPage() {
                   {/* Network Visualization */}
                   <div className="relative h-48 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl overflow-hidden border border-blue-200">
                     <Image
-                      src="/images/blockchain-network.png"
+                      src="/images/ai-technology.png"
                       alt="Distributed Computing Network Visualization"
                       fill
                       className="object-cover rounded-xl"

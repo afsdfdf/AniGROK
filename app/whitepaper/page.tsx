@@ -72,7 +72,7 @@ export default function WhitepaperPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
                 <FileText className="w-5 h-5 text-white" />
               </div>
-            <span className="text-xl font-bold text-gray-900">AIMINT Whitepaper</span>
+            <span className="text-xl font-bold text-gray-900">AniGROK Whitepaper</span>
             </div>
             <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-2 rounded-xl">
             Download PDF
@@ -89,12 +89,12 @@ export default function WhitepaperPage() {
             <span>Technical Whitepaper v2.0</span>
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AIMINT</span>
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">AniGROK</span>
             <br />
-            <span className="text-3xl sm:text-4xl text-gray-700">Algorithm as Asset, Crafting Future Creation</span>
+            <span className="text-3xl sm:text-4xl text-gray-700">AI-Driven Anime NFT Platform</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            A decentralized creative ecosystem based on the deep integration of artificial intelligence and blockchain technology with a total token supply of 1 billion AIMINT
+            A revolutionary platform that transforms creative prompts into unique anime-style NFTs using GROK AI technology on BSC blockchain with 300 million ANI tokens
           </p>
           <div className="flex items-center justify-center gap-8 mt-8 text-sm text-gray-500">
             <span>Release Date: January 2025</span>

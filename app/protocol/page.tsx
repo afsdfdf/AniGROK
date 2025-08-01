@@ -231,7 +231,7 @@ export default function ProtocolPage() {
                   {/* Model Preview */}
                   <div className="relative h-48 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl overflow-hidden border border-blue-200">
                     <Image
-                      src="/images/crypto-ai-1.png"
+                      src="/images/nft-creation.png"
                       alt="AI Model Protocol Interface"
                       fill
                       className="object-cover rounded-xl"

@@ -1,0 +1,181 @@
+{
+  "generated_at": "2025-08-01T06:57:05.628Z",
+  "total_requested": 24,
+  "successful": 12,
+  "real_generated": 12,
+  "failed": 12,
+  "successful_images": [
+    {
+      "success": true,
+      "type": "real",
+      "filename": "anigrok-logo.png",
+      "description": "主品牌Logo"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "anigrok-icon.png",
+      "description": "应用图标"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "ani-character.png",
+      "description": "Ani角色全身图"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "ani-avatar.png",
+      "description": "Ani头像"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "ani-showcase.png",
+      "description": "Ani展示图"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "ai-technology.png",
+      "description": "AI技术图"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "nft-creation.png",
+      "description": "NFT创作过程"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "token-economy.png",
+      "description": "代币经济"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "generated-sample-1.png",
+      "description": "生成示例1"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "gallery-sample-3.png",
+      "description": "画廊示例3"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "platform-hero.png",
+      "description": "平台英雄图"
+    },
+    {
+      "success": true,
+      "type": "real",
+      "filename": "gallery-sample-1.png",
+      "description": "画廊示例1"
+    }
+  ],
+  "failed_images": [
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "blockchain-network.png",
+      "description": "区块链网络"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "marketplace-preview.png",
+      "description": "市场预览"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "community-gathering.png",
+      "description": "社区聚会"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "generated-sample-2.png",
+      "description": "生成示例2"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "generated-sample-3.png",
+      "description": "生成示例3"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "generated-sample-4.png",
+      "description": "生成示例4"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "gallery-sample-2.png",
+      "description": "画廊示例2"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "gallery-sample-4.png",
+      "description": "画廊示例4"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "feature-ai-chat.png",
+      "description": "AI聊天功能"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "feature-image-generation.png",
+      "description": "图片生成功能"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "feature-nft-minting.png",
+      "description": "NFT铸造功能"
+    },
+    {
+      "success": false,
+      "type": "demo",
+      "filename": "feature-community.png",
+      "description": "社区功能"
+    }
+  ],
+  "image_descriptions": {
+    "anigrok-logo.png": "主品牌Logo",
+    "anigrok-icon.png": "应用图标",
+    "ani-character.png": "Ani角色全身图",
+    "ani-avatar.png": "Ani头像",
+    "ani-showcase.png": "Ani展示图",
+    "ai-technology.png": "AI技术图",
+    "nft-creation.png": "NFT创作过程",
+    "token-economy.png": "代币经济",
+    "blockchain-network.png": "区块链网络",
+    "platform-hero.png": "平台英雄图",
+    "marketplace-preview.png": "市场预览",
+    "community-gathering.png": "社区聚会",
+    "generated-sample-1.png": "生成示例1",
+    "generated-sample-2.png": "生成示例2",
+    "generated-sample-3.png": "生成示例3",
+    "generated-sample-4.png": "生成示例4",
+    "gallery-sample-1.png": "画廊示例1",
+    "gallery-sample-2.png": "画廊示例2",
+    "gallery-sample-3.png": "画廊示例3",
+    "gallery-sample-4.png": "画廊示例4",
+    "feature-ai-chat.png": "AI聊天功能",
+    "feature-image-generation.png": "图片生成功能",
+    "feature-nft-minting.png": "NFT铸造功能",
+    "feature-community.png": "社区功能"
+  }
+}

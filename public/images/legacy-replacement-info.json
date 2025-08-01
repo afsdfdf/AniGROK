@@ -1,0 +1,103 @@
+{
+  "generated_at": "2025-08-01T06:33:55.923Z",
+  "total_processed": 12,
+  "successful": 12,
+  "real_generated": 1,
+  "fallback_used": 11,
+  "failed": 0,
+  "replacements": [
+    {
+      "oldName": "logoh.png",
+      "newName": "anigrok-logo.png",
+      "prompt": "anime style, AniGROK logo design, gothic lolita girl silhouette, twin tails, purple and pink gradient, minimalist, clean design, brand logo",
+      "success": true,
+      "type": "fallback",
+      "filename": "anigrok-logo.png"
+    },
+    {
+      "oldName": "logo1.png",
+      "newName": "anigrok-icon.png",
+      "prompt": "anime style, cute anime girl mascot icon, gothic style, purple colors, circular logo design, kawaii face, simple background",
+      "success": true,
+      "type": "fallback",
+      "filename": "anigrok-icon.png"
+    },
+    {
+      "oldName": "generated-cat.png",
+      "newName": "ani-showcase.png",
+      "prompt": "anime style, gothic lolita virtual assistant Ani, twin tails, dark dress, fishnet stockings, cute expression, AniGROK mascot, detailed 2D art",
+      "success": true,
+      "type": "fallback",
+      "filename": "ani-showcase.png"
+    },
+    {
+      "oldName": "ai-brain.png",
+      "newName": "ai-technology.png",
+      "prompt": "anime style, AI technology illustration, neural network, brain with anime girl, purple glow, tech elements, futuristic design, kawaii style",
+      "success": true,
+      "type": "fallback",
+      "filename": "ai-technology.png"
+    },
+    {
+      "oldName": "crypto-ai-1.png",
+      "newName": "nft-creation.png",
+      "prompt": "anime style, NFT creation process, anime girl creating digital art, blockchain, colorful artwork, creative studio, technology meets art",
+      "success": true,
+      "type": "fallback",
+      "filename": "nft-creation.png"
+    },
+    {
+      "oldName": "crypto-ai-2.png",
+      "newName": "token-economy.png",
+      "prompt": "anime style, cryptocurrency economy, anime girl with digital coins, trading interface, financial success, kawaii business girl",
+      "success": true,
+      "type": "fallback",
+      "filename": "token-economy.png"
+    },
+    {
+      "oldName": "blockchain-network.png",
+      "newName": "network-visualization.png",
+      "prompt": "anime style, blockchain network visualization, connected nodes, cyber space, purple and blue glow, futuristic network, tech illustration",
+      "success": true,
+      "type": "fallback",
+      "filename": "network-visualization.png"
+    }
+  ],
+  "additional": [
+    {
+      "name": "ani-avatar.png",
+      "prompt": "anime style, Ani character portrait, gothic lolita, twin tails, purple dress, fishnet stockings, friendly smile, AniGROK mascot, high quality",
+      "success": true,
+      "type": "fallback",
+      "filename": "ani-avatar.png"
+    },
+    {
+      "name": "platform-hero.png",
+      "prompt": "anime style, AniGROK platform illustration, multiple anime characters, NFT creation, digital art studio, colorful and vibrant, team working",
+      "success": true,
+      "type": "fallback",
+      "filename": "platform-hero.png"
+    },
+    {
+      "name": "community-bg.png",
+      "prompt": "anime style, anime community gathering, multiple characters, social interaction, friendly atmosphere, colorful background, unity theme",
+      "success": true,
+      "type": "real",
+      "filename": "community-bg.png"
+    },
+    {
+      "name": "feature-showcase.png",
+      "prompt": "anime style, platform features showcase, AI generation, NFT minting, character creation, user interface, modern design, kawaii elements",
+      "success": true,
+      "type": "fallback",
+      "filename": "feature-showcase.png"
+    },
+    {
+      "name": "marketplace-preview.png",
+      "prompt": "anime style, NFT marketplace interface, digital art gallery, anime artwork displays, shopping experience, modern UI design",
+      "success": true,
+      "type": "fallback",
+      "filename": "marketplace-preview.png"
+    }
+  ]
+}

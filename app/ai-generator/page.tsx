@@ -1,513 +1,384 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Slider } from '@/components/ui/slider';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Sparkles, Download, Share2, Settings, Image as ImageIcon, Wand2, Copy, RefreshCw, Palette, Zap } from 'lucide-react';
-import Image from 'next/image';
-import { useToast } from '@/hooks/use-toast';
-
-interface GenerationResult {
-  images: Array<{ url: string }>;
-  timings: { inference: number };
-  seed: number;
-  shared_id: string;
-  created: number;
-  prompt: string;
-  model: string;
-}
-
-interface GenerationParams {
-  prompt: string;
-  model: string;
-  image_size: string;
-  batch_size: number;
-  num_inference_steps: number;
-  guidance_scale: number;
-}
+import { useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { ArrowLeft, Sparkles, Wand2, Heart, Download, Share2, MessageCircle } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function AIGeneratorPage() {
-  const { toast } = useToast();
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [generationResult, setGenerationResult] = useState<GenerationResult | null>(null);
-  const [progress, setProgress] = useState(0);
-  const [currentStep, setCurrentStep] = useState('');
-  
-  const [params, setParams] = useState<GenerationParams>({
-    prompt: '',
-    model: 'Kwai-Kolors/Kolors',
-    image_size: '1024x1024',
-    batch_size: 1,
-    num_inference_steps: 20,
-    guidance_scale: 7.5
-  });
+  const [prompt, setPrompt] = useState("")
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [generatedImage, setGeneratedImage] = useState<string | null>(null)
+  const [generationMessages, setGenerationMessages] = useState<string[]>([])
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
 
   const presetPrompts = [
-    "A majestic dragon soaring through clouds at sunset, fantasy art style",
-    "Cyberpunk cityscape with neon lights reflecting on wet streets",
-    "A serene Japanese garden with cherry blossoms and a traditional bridge",
-    "Abstract geometric patterns in vibrant colors, modern art style",
-    "A cute robot companion in a futuristic home setting",
-    "Underwater coral reef with colorful fish and marine life",
-    "Futuristic space station orbiting a distant planet",
-    "Enchanted forest with glowing mushrooms and fairy lights"
-  ];
+    "Gothic anime girl with twin tails, fishnet stockings, cute and cool",
+    "Kawaii cat girl with purple hair, wearing maid outfit",
+    "Cyberpunk anime warrior with neon armor and glowing eyes",
+    "Elegant anime princess in traditional Japanese kimono",
+    "Cool anime boy with silver hair and magical powers"
+  ]
 
-  const models = [
-    { value: 'Kwai-Kolors/Kolors', label: 'AIMINT (Recommended)' }
-  ];
-
-  const imageSizes = [
-    { value: '512x512', label: '512×512' },
-    { value: '768x768', label: '768×768' },
-    { value: '1024x1024', label: '1024×1024 (Recommended)' },
-    { value: '1024x768', label: '1024×768 (Landscape)' },
-    { value: '768x1024', label: '768×1024 (Portrait)' }
-  ];
-
-  const generationSteps = [
-    "Analyzing prompt...",
-    "Initializing AI model...",
-    "Generating base composition...",
-    "Adding detail elements...",
-    "Optimizing image quality...",
-    "Final rendering...",
-    "Generation complete!"
-  ];
+  const demoGenerations = [
+    { prompt: "Gothic anime girl", image: "/images/generated-sample-1.png" },
+    { prompt: "Ani character showcase", image: "/images/ani-showcase.png" },
+    { prompt: "NFT creation process", image: "/images/nft-creation.png" },
+  ]
 
   const handleGenerate = async () => {
-    if (!params.prompt.trim()) {
-      toast({
-        title: "Please enter a prompt",
-        description: "Please describe the image content you want to generate",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsGenerating(true);
-    setProgress(0);
-    setGenerationResult(null);
-
+    if (!prompt.trim()) return
+    
+    setIsGenerating(true)
+    setGeneratedImage(null)
+    
+    const messages = [
+      "Ani正在理解你的创意...",
+      "连接AI生成服务...",
+      "分析动漫角色特征中...",
+      "调整哥特风格参数...",
+      "生成独特的anime元素...",
+      "即将完成创作..."
+    ]
+    
+    setGenerationMessages(messages)
+    setCurrentMessageIndex(0)
+    
+    // 显示进度消息
+    const messageInterval = setInterval(() => {
+      setCurrentMessageIndex(prev => {
+        if (prev < messages.length - 1) {
+          return prev + 1
+        } else {
+          clearInterval(messageInterval)
+          return prev
+        }
+      })
+    }, 800)
+    
     try {
-      // 在提示词后添加AIMINT水印要求
-      const enhancedPrompt = `${params.prompt.trim()}, add text "AIMINT" in the bottom right corner of the image`;
-      const enhancedParams = { ...params, prompt: enhancedPrompt };
+      // 构建anime风格的prompt
+      const animePrompt = `anime style, ${prompt}, high quality, detailed, 2D art, manga style, colorful, cute`
       
-      // 模拟生成步骤
-      for (let i = 0; i < generationSteps.length; i++) {
-        setCurrentStep(generationSteps[i]);
-        const stepProgress = ((i + 1) / generationSteps.length) * 90; // 90% for steps
-        
-        // 在倒数第二步调用API
-        if (i === generationSteps.length - 2) {
+      // 调用真实的图片生成API
           const response = await fetch('/api/generate-image', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(enhancedParams)
-          });
+        body: JSON.stringify({
+          prompt: animePrompt,
+          model: 'Kwai-Kolors/Kolors',
+          image_size: '1024x1024',
+          batch_size: 1,
+          num_inference_steps: 20,
+          guidance_scale: 7.5
+        }),
+      })
 
-          if (!response.ok) {
-            throw new Error(`API request failed: ${response.status}`);
-          }
-
-          const result = await response.json();
-          if (result.success) {
-            setGenerationResult(result.data);
-          } else {
-            throw new Error(result.error || 'API returned error');
-          }
+      const data = await response.json()
+      
+      clearInterval(messageInterval)
+      
+      if (data.success && data.data.images && data.data.images.length > 0) {
+        setGeneratedImage(data.data.images[0].url)
+        setCurrentMessageIndex(messages.length - 1)
+        
+        // 显示状态信息
+        if (data.data.fallback) {
+          console.log('📱 Using fallback image:', data.data.message)
+          // 可以在UI中显示降级提示
+        } else {
+          console.log('✅ Real AI generation successful!')
         }
         
-        // 动画进度
-        for (let p = Math.floor(progress); p <= stepProgress; p += 2) {
-          setProgress(p);
-          await new Promise(resolve => setTimeout(resolve, 30));
-        }
-        
-        await new Promise(resolve => setTimeout(resolve, 200));
+        setTimeout(() => {
+          setCurrentMessageIndex(prev => prev + 1) // 触发"完成"状态
+        }, 500)
+      } else {
+        console.error('Image generation failed:', data.error)
+        // 降级到演示图片
+        const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/nft-creation.png", "/images/token-economy.png"]
+        const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
+        setGeneratedImage(randomImage)
+        setCurrentMessageIndex(messages.length - 1)
       }
-      
-      setProgress(100);
-      setCurrentStep('Generation complete!');
-      
-      toast({
-        title: "Generation successful!",
-        description: "Your AI artwork has been generated successfully"
-      });
-      
     } catch (error) {
-      console.error('Generation failed:', error);
-      toast({
-        title: "Generation failed",
-        description: error instanceof Error ? error.message : 'Unknown error, please try again',
-        variant: "destructive"
-      });
+      console.error('API call failed:', error)
+      clearInterval(messageInterval)
+      
+      // 降级到演示图片
+      const demoImages = ["/images/generated-sample-1.png", "/images/ani-showcase.png", "/images/nft-creation.png", "/images/token-economy.png"]
+      const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)]
+      setGeneratedImage(randomImage)
+      setCurrentMessageIndex(messages.length - 1)
     } finally {
-      setIsGenerating(false);
+      setIsGenerating(false)
     }
-  };
-
-  const copyPrompt = (prompt: string) => {
-    setParams(prev => ({ ...prev, prompt }));
-    toast({
-      title: "Prompt copied",
-      description: "Preset prompt has been filled into the input field"
-    });
-  };
-
-  const downloadImage = (url: string) => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `aimint-generated-${Date.now()}.jpg`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.05)_50%,transparent_75%)] bg-[length:40px_40px]" />
-      
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl opacity-60 animate-float shadow-lg transform rotate-12" />
-        <div
-          className="absolute top-40 right-20 w-12 h-12 bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl opacity-50 animate-float shadow-lg transform -rotate-12"
-          style={{ animationDelay: "1s" }}
-        />
-        <div
-          className="absolute bottom-40 left-20 w-20 h-20 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-3xl opacity-40 animate-float shadow-lg transform rotate-45"
-          style={{ animationDelay: "2s" }}
-        />
+    <main className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+      {/* Navigation */}
+      <nav className="bg-white/80 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center gap-3 text-purple-600 hover:text-purple-700 transition-colors">
+              <ArrowLeft className="w-5 h-5" />
+              <span className="font-medium">Back to Home</span>
+            </Link>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
+                <Wand2 className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xl font-bold text-gray-900">AI Generator</span>
+            </div>
+          </div>
       </div>
+      </nav>
       
-      <div className="relative z-10 p-4 sm:p-6 lg:p-8">
-        <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-blue-700 font-medium mb-6 shadow-lg backdrop-blur-sm">
-              <Palette className="w-4 h-4" />
-              <span>AI Art Creation Studio</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-purple-700 font-medium mb-6 shadow-lg">
+            <Sparkles className="w-4 h-4" />
+            <span>AI Art Generator</span>
             </div>
-            <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6 leading-tight">
-              <span className="block">AIMINT</span>
-              <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                AI Generator
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              GROK AI Studio
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Transform your creative ideas into stunning digital artworks using advanced AI technology. 
-              Create, customize, and mint your unique NFT masterpieces.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            与Ani一起创造独一无二的动漫角色NFT，让你的创意通过AI变为现实
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Left Side: Parameter Settings */}
+        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+          {/* Generator Interface */}
             <div className="space-y-6">
-              <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-gray-900">
-                    <Settings className="w-5 h-5 text-blue-600" />
-                    Generation Parameters
+            <Card className="bg-white border border-gray-200 rounded-3xl shadow-xl">
+              <CardHeader className="p-8">
+                <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                  <Wand2 className="w-6 h-6 text-purple-600" />
+                  创作你的动漫角色
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+              <CardContent className="p-8 pt-0 space-y-6">
                   {/* Prompt Input */}
-                  <div className="space-y-2">
-                    <Label htmlFor="prompt" className="text-gray-700 font-medium">Creative Prompt</Label>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    描述你想要的角色 *
+                  </label>
                     <Textarea
-                      id="prompt"
-                      placeholder="Describe the image content you want to generate, e.g.: A cute cat floating in space, cyberpunk style, neon effects"
-                      value={params.prompt}
-                      onChange={(e) => setParams(prev => ({ ...prev, prompt: e.target.value }))}
-                      className="min-h-[100px] resize-none border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                    placeholder="例如: 哥特风格的动漫女孩，双马尾，渔网袜，既可爱又酷炫"
+                    value={prompt}
+                    onChange={(e) => setPrompt(e.target.value)}
+                    className="min-h-[120px] resize-none"
                     />
                   </div>
 
-                  <Tabs defaultValue="basic" className="w-full">
-                    <TabsList className="grid w-full grid-cols-2 bg-gray-100">
-                      <TabsTrigger value="basic" className="data-[state=active]:bg-white data-[state=active]:text-blue-600">Basic Settings</TabsTrigger>
-                      <TabsTrigger value="advanced" className="data-[state=active]:bg-white data-[state=active]:text-blue-600">Advanced Settings</TabsTrigger>
-                    </TabsList>
-                    
-                    <TabsContent value="basic" className="space-y-4">
-                      {/* Fixed Kolors Model */}
-                      <div className="space-y-2">
-                        <Label className="text-gray-700 font-medium">AI Model</Label>
-                        <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg text-sm text-blue-700 font-medium">
-                          <div className="flex items-center gap-2">
-                            <Zap className="w-4 h-4" />
-                            AIMINT (Recommended)
-                          </div>
+                {/* Preset Prompts */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    快速选择模板
+                  </label>
+                  <div className="grid grid-cols-1 gap-2">
+                    {presetPrompts.map((preset, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setPrompt(preset)}
+                        className="text-left p-3 bg-gray-50 hover:bg-purple-50 rounded-lg transition-colors text-sm text-gray-700 hover:text-purple-700"
+                      >
+                        {preset}
+                      </button>
+                    ))}
                         </div>
                       </div>
-
-                      {/* Image Size */}
-                      <div className="space-y-2">
-                        <Label className="text-gray-700 font-medium">Image Size</Label>
-                        <Select value={params.image_size} onValueChange={(value) => setParams(prev => ({ ...prev, image_size: value }))}>
-                          <SelectTrigger className="border-gray-200 focus:border-blue-500 focus:ring-blue-500">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {imageSizes.map((size) => (
-                              <SelectItem key={size.value} value={size.value}>
-                                {size.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </TabsContent>
-                  
-                    <TabsContent value="advanced" className="space-y-4">
-                      {/* Inference Steps */}
-                      <div className="space-y-2">
-                        <Label className="text-gray-700 font-medium">Inference Steps: {params.num_inference_steps}</Label>
-                        <Slider
-                          value={[params.num_inference_steps]}
-                          onValueChange={([value]) => setParams(prev => ({ ...prev, num_inference_steps: value }))}
-                          min={10}
-                          max={50}
-                          step={1}
-                          className="w-full"
-                        />
-                        <div className="text-xs text-gray-500">More steps = Higher quality, but longer generation time</div>
-                      </div>
-
-                      {/* Guidance Scale */}
-                      <div className="space-y-2">
-                        <Label className="text-gray-700 font-medium">Guidance Scale: {params.guidance_scale}</Label>
-                        <Slider
-                          value={[params.guidance_scale]}
-                          onValueChange={([value]) => setParams(prev => ({ ...prev, guidance_scale: value }))}
-                          min={1}
-                          max={20}
-                          step={0.5}
-                          className="w-full"
-                        />
-                        <div className="text-xs text-gray-500">Higher value = Stricter adherence to prompt</div>
-                      </div>
-
-                      {/* Batch Generation */}
-                      <div className="space-y-2">
-                        <Label className="text-gray-700 font-medium">Generation Count</Label>
-                        <Select value={params.batch_size.toString()} onValueChange={(value) => setParams(prev => ({ ...prev, batch_size: parseInt(value) }))}>
-                          <SelectTrigger className="border-gray-200 focus:border-blue-500 focus:ring-blue-500">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="1">1 Image</SelectItem>
-                            <SelectItem value="2">2 Images</SelectItem>
-                            <SelectItem value="4">4 Images</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </TabsContent>
-                </Tabs>
 
                   {/* Generate Button */}
                   <Button
                     onClick={handleGenerate}
-                    disabled={isGenerating || !params.prompt.trim()}
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 font-semibold"
-                    size="lg"
+                  disabled={!prompt || isGenerating}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   >
                     {isGenerating ? (
                       <>
-                        <Wand2 className="mr-2 w-5 h-5 animate-spin" />
-                        Generating... {Math.round(progress)}%
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                      Ani正在创作中...
                       </>
                     ) : (
                       <>
-                        <Sparkles className="mr-2 w-5 h-5" />
-                        Start AI Creation
+                      <Sparkles className="w-5 h-5 mr-2" />
+                      生成动漫NFT
                       </>
                     )}
                   </Button>
 
-                  {/* Generation Progress */}
-                  {isGenerating && (
-                    <div className="space-y-3 p-4 bg-blue-50 rounded-xl border border-blue-200">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-blue-700 font-medium">{currentStep}</span>
-                        <span className="text-blue-600 font-bold">{Math.round(progress)}%</span>
-                      </div>
-                      <div className="w-full bg-blue-200 rounded-full h-3">
-                        <div
-                          className="bg-gradient-to-r from-blue-600 to-indigo-600 h-3 rounded-full transition-all duration-300 relative overflow-hidden"
-                          style={{ width: `${progress}%` }}
-                        >
-                          <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
-                        </div>
-                      </div>
+                <div className="text-xs text-gray-500 text-center">
+                  ⚡ 使用ANI代币支付生成费用 • 🎌 专业动漫风格训练
                     </div>
-                  )}
                 </CardContent>
               </Card>
 
-              {/* Preset Prompts */}
-              <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-gray-900">
-                    <Wand2 className="w-5 h-5 text-blue-600" />
-                    Creative Inspiration
-                  </CardTitle>
+            {/* Generation Settings */}
+            <Card className="bg-white border border-gray-200 rounded-3xl shadow-xl">
+              <CardHeader className="p-6">
+                <CardTitle className="text-lg font-bold text-gray-900">高级设置</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="grid gap-3">
-                    {presetPrompts.map((prompt, index) => (
-                      <div
-                        key={index}
-                        className="p-4 bg-gradient-to-r from-gray-50 to-blue-50 hover:from-blue-50 hover:to-indigo-50 rounded-xl cursor-pointer transition-all duration-300 group border border-gray-200 hover:border-blue-300 hover:shadow-md"
-                        onClick={() => copyPrompt(prompt)}
-                      >
-                        <div className="flex items-start justify-between">
-                          <p className="text-sm text-gray-700 flex-1 leading-relaxed">{prompt}</p>
-                          <Copy className="w-4 h-4 text-gray-400 group-hover:text-blue-600 ml-3 flex-shrink-0 transition-colors" />
+              <CardContent className="p-6 pt-0 space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">艺术风格</label>
+                    <select className="w-full p-2 border border-gray-300 rounded-lg">
+                      <option>哥特风格</option>
+                      <option>萌系可爱</option>
+                      <option>赛博朋克</option>
+                      <option>传统和风</option>
+                    </select>
                         </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">画质</label>
+                    <select className="w-full p-2 border border-gray-300 rounded-lg">
+                      <option>高清 (推荐)</option>
+                      <option>超高清</option>
+                      <option>标准</option>
+                    </select>
                       </div>
-                    ))}
                   </div>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Right Side: Result Display */}
+          {/* Result Display */}
             <div className="space-y-6">
-              <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-gray-900">
-                    <ImageIcon className="w-5 h-5 text-blue-600" />
-                    Generation Results
+            {/* Generated Result */}
+            <Card className="bg-white border border-gray-200 rounded-3xl shadow-xl">
+              <CardHeader className="p-8">
+                <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                  <Heart className="w-6 h-6 text-pink-600" />
+                  Ani的创作结果
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  {generationResult ? (
-                    <div className="space-y-6">
-                      {/* Generated Images */}
-                      <div className="grid gap-4">
-                        {generationResult.images.map((image, index) => (
-                          <div key={index} className="relative group">
-                            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg">
-                              <Image
-                                src={image.url}
-                                alt={`Generated artwork ${index + 1}`}
-                                fill
-                                className="object-cover transition-all duration-500 group-hover:scale-110"
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.src = '/placeholder.jpg';
-                                }}
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                              
-                              {/* Floating Action Buttons */}
-                              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                <div className="flex gap-2">
-                                  <Button
-                                    size="sm"
-                                    className="bg-white/90 hover:bg-white text-gray-700 shadow-lg backdrop-blur-sm"
-                                    onClick={() => downloadImage(image.url)}
-                                  >
-                                    <Download className="w-4 h-4" />
-                                  </Button>
-                                  <Button
-                                    size="sm"
-                                    className="bg-white/90 hover:bg-white text-gray-700 shadow-lg backdrop-blur-sm"
-                                  >
-                                    <Share2 className="w-4 h-4" />
-                                  </Button>
+              <CardContent className="p-8 pt-0">
+                {!generatedImage && !isGenerating ? (
+                  <div className="aspect-square bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-purple-200">
+                    <div className="text-center">
+                      <Sparkles className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                      <p className="text-gray-500">输入提示词开始创作</p>
                                 </div>
                               </div>
-                              
-                              {/* Image Quality Badge */}
-                              <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                <Badge className="bg-white/90 text-gray-700 shadow-lg backdrop-blur-sm">
-                                  AI Generated
-                                </Badge>
-                              </div>
-                            </div>
-                          </div>
+                ) : isGenerating ? (
+                  <div className="aspect-square bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                      <p className="text-purple-700 font-medium">
+                        {currentMessageIndex >= generationMessages.length 
+                          ? "完成！你的专属waifu已诞生✨" 
+                          : (generationMessages[currentMessageIndex] || "GROK AI正在创作中...")
+                        }
+                      </p>
+                      <p className="text-gray-500 text-sm mt-2">
+                        {currentMessageIndex >= generationMessages.length 
+                          ? "创作完成，正在加载图片..." 
+                          : "Ani正在为你精心制作"
+                        }
+                      </p>
+                      <div className="flex justify-center mt-3">
+                        {generationMessages.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 ${
+                              index <= currentMessageIndex ? "bg-purple-600" : "bg-gray-300"
+                            }`}
+                          />
                         ))}
+                        {currentMessageIndex >= generationMessages.length && (
+                          <div className="w-2 h-2 rounded-full mx-1 bg-green-500 animate-pulse" />
+                        )}
                       </div>
-
-                      {/* Generation Information */}
-                      <div className="grid grid-cols-2 gap-4 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
-                        <div className="text-center">
-                          <div className="text-sm text-blue-600 font-medium mb-1">Generation Time</div>
-                          <div className="text-lg font-bold text-gray-900">{generationResult.timings.inference.toFixed(2)}s</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-sm text-blue-600 font-medium mb-1">Seed Value</div>
-                          <div className="text-lg font-bold text-gray-900">{generationResult.seed}</div>
-                        </div>
-                        <div className="col-span-2 text-center pt-2 border-t border-blue-200">
-                          <div className="text-sm text-blue-600 font-medium mb-1">AI Model</div>
-                          <div className="flex items-center justify-center gap-2">
-                            <Zap className="w-4 h-4 text-blue-600" />
-                            <span className="font-bold text-gray-900">AIMINT</span>
                           </div>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="relative aspect-square bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl overflow-hidden">
+                      <Image
+                        src={generatedImage || "/images/generated-sample-1.png"}
+                        alt="AI Generated Anime Character"
+                        fill
+                        className="object-contain"
+                      />
+                      <div className="absolute top-4 right-4 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                        Ani's Creation ✨
                         </div>
                       </div>
 
-                      {/* Action Buttons */}
-                      <div className="flex gap-3">
-                        <Button
-                          onClick={handleGenerate}
-                          disabled={isGenerating}
-                          className="flex-1 border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-300"
-                          variant="outline"
-                        >
-                          <RefreshCw className="mr-2 w-4 h-4" />
-                          Regenerate
+                    <div className="flex gap-2">
+                      <Button className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+                        <Download className="w-4 h-4 mr-2" />
+                        铸造NFT
+                      </Button>
+                      <Button variant="outline" className="flex-1">
+                        <Share2 className="w-4 h-4 mr-2" />
+                        分享
                         </Button>
                         <Button 
-                          className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg hover:shadow-xl transition-all duration-300"
-                          onClick={() => toast({
-                            title: "Feature in Development",
-                            description: "NFT minting functionality is coming soon!"
-                          })}
-                        >
-                          <Sparkles className="mr-2 w-4 h-4" />
-                          Mint NFT
+                        variant="outline" 
+                        className="px-3"
+                        onClick={() => window.location.href = '/ani-character'}
+                        title="与Ani聊天"
+                      >
+                        <MessageCircle className="w-4 h-4" />
                         </Button>
                       </div>
                     </div>
-                  ) : (
-                    <div className="aspect-square bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-blue-200 relative overflow-hidden">
-                      {/* Background Pattern */}
-                      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.05)_50%,transparent_75%)] bg-[length:20px_20px]" />
-                      
-                      <div className="text-center relative z-10">
-                        <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                          <Palette className="w-10 h-10 text-white" />
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">Ready to Create</h3>
-                        <p className="text-gray-600 max-w-xs mx-auto leading-relaxed">
-                          Enter your creative prompt and click the generate button to start AI artwork creation
-                        </p>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Demo Gallery */}
+            <Card className="bg-white border border-gray-200 rounded-3xl shadow-xl">
+              <CardHeader className="p-6">
+                <CardTitle className="text-lg font-bold text-gray-900">展示作品集</CardTitle>
+              </CardHeader>
+              <CardContent className="p-6 pt-0">
+                <div className="grid grid-cols-3 gap-3">
+                  {demoGenerations.map((demo, index) => (
+                    <div key={index} className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group cursor-pointer">
+                      <Image
+                        src={demo.image}
+                        alt={demo.prompt}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p className="text-white text-xs text-center px-2">{demo.prompt}</p>
                       </div>
                     </div>
-                  )}
+                  ))}
+                </div>
                 </CardContent>
               </Card>
             </div>
+        </div>
+
+        {/* Bottom Info */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-3xl max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold text-purple-800 mb-4">
+              🎨 AI生成技术演示
+            </h3>
+            <p className="text-gray-700">
+              这里展示了AniGROK的AI生成技术原型。通过与Ani的对话和这个演示界面，
+              你可以体验到未来anime NFT创作的无限可能。立即与Ani聊天了解更多！
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </main>
+  )
 }

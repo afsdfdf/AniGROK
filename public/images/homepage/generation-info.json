@@ -1,0 +1,67 @@
+{
+  "generated_at": "2025-08-01T06:24:21.772Z",
+  "total_images": 10,
+  "successful_images": 10,
+  "images": [
+    {
+      "id": 1,
+      "filename": "homepage-1.png",
+      "prompt": "anime style, gothic lolita girl with twin tails, cute and elegant, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 2,
+      "filename": "homepage-2.png",
+      "prompt": "anime style, kawaii cat girl with purple hair, maid outfit, adorable, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 3,
+      "filename": "homepage-3.png",
+      "prompt": "anime style, cyberpunk anime warrior with neon armor, cool and futuristic, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 4,
+      "filename": "homepage-4.png",
+      "prompt": "anime style, elegant anime princess in traditional Japanese kimono, beautiful, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 5,
+      "filename": "homepage-5.png",
+      "prompt": "anime style, magical anime girl with sparkles and stars, enchanting, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 6,
+      "filename": "homepage-6.png",
+      "prompt": "anime style, school uniform anime girl with glasses, intelligent and cute, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 7,
+      "filename": "homepage-7.png",
+      "prompt": "anime style, angel anime girl with white wings, pure and graceful, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 8,
+      "filename": "homepage-8.png",
+      "prompt": "anime style, witch anime girl with hat and magic wand, mysterious, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 9,
+      "filename": "homepage-9.png",
+      "prompt": "anime style, ninja anime girl in dark outfit, stealthy and cool, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    },
+    {
+      "id": 10,
+      "filename": "homepage-10.png",
+      "prompt": "anime style, fairy anime girl with flower crown, nature themed, high quality, detailed, 2D art, manga style, colorful",
+      "status": "success"
+    }
+  ]
+}

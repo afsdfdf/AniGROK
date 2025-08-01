@@ -1,0 +1,212 @@
+{
+  "navigation": {
+    "home": "Home",
+    "aiGenerator": "AI Generator",
+    "marketplace": "Marketplace",
+    "aniCharacter": "Ani Character",
+    "token": "ANI Token",
+    "roadmap": "Roadmap",
+    "about": "About",
+    "whitepaper": "Whitepaper",
+    "signIn": "Sign In"
+  },
+  "hero": {
+    "badge": "Create with Ani • Now Live",
+    "title": "AniGROK",
+    "subtitle": "AI NFT Platform",
+    "slides": [
+      "Create unique anime characters with Ani",
+      "AI-driven smart chat & NFT generation experience", 
+      "Explore the perfect fusion of 2D culture & blockchain"
+    ],
+    "description": "Chat with virtual waifu assistant Ani, experience AI-driven anime character generation technology. Explore the innovative fusion of 2D culture and Web3 technology, start your creative journey now.",
+    "chatButton": "Chat with Ani",
+    "generateButton": "Try AI Generation ✨",
+    "quickStats": {
+      "community": "Anime Community",
+      "communityValue": "United",
+      "ai": "GROK AI",
+      "aiValue": "Powered",
+      "future": "NFT Future", 
+      "futureValue": "Bright"
+    },
+    "demo": {
+      "title": "AniGROK Studio",
+      "subtitle": "Anime NFT Generator",
+      "promptLabel": "Enter Your Anime Prompt",
+      "generating": "AI Creating...",
+      "ready": "Click the button below to start AI creation ✨",
+      "generateButton": "🎨 Click to Generate",
+      "mintButton": "Mint NFT 🎌"
+    }
+  },
+  "features": {
+    "title": "Platform Features",
+    "subtitle": "Experience the charm of AI-generated anime with cutting-edge technology",
+    "aiChat": {
+      "title": "Smart AI Chat",
+      "description": "Deep communication with Ani virtual assistant",
+      "features": [
+        "Real-time intelligent conversation, understanding your creative needs",
+        "Professional anime character creation guidance",
+        "Deep otaku culture exchange and interaction",
+        "24/7 online companion, always at your service"
+      ]
+    },
+    "demo": {
+      "title": "Interactive Demo",
+      "description": "Experience the complete generation process firsthand",
+      "features": [
+        "Complete technical demonstration of generation process",
+        "Preview display of multiple anime styles",
+        "Interactive interface, intuitive and easy operation",
+        "Real-time feedback, understand technical implementation"
+      ]
+    },
+    "character": {
+      "title": "Virtual Character Ani",
+      "description": "Exclusive virtual idol representing the future",
+      "features": [
+        "Unique twin-tail gothic aesthetic character design",
+        "Rich interactive features and personalized experience", 
+        "Professional creative guidance and inspiration",
+        "Representing the future development of digital interaction"
+      ]
+    },
+    "future": {
+      "title": "Unlimited Future",
+      "description": "Leading anime culture into the Web3 era",
+      "features": [
+        "Community-driven ecosystem continuous development",
+        "Continuous innovation of AI technology in creative fields",
+        "Inheritance and promotion of 2D culture",
+        "Global anime enthusiast community building"
+      ]
+    }
+  },
+  "gallery": {
+    "title": "Creative Gallery",
+    "subtitle": "Explore amazing anime artworks created by AI technology",
+    "viewAll": "View All",
+    "filter": {
+      "all": "All",
+      "cute": "Cute",
+      "cool": "Cool",
+      "gothic": "Gothic"
+    },
+    "stats": {
+      "views": "Views",
+      "likes": "Likes"
+    }
+  },
+  "demo": {
+    "title": "Experience AI Generation",
+    "subtitle": "See how AI creates your exclusive anime character",
+    "steps": [
+      "Describe your ideal character",
+      "AI understands and analyzes",
+      "Generate unique artwork",
+      "Mint as NFT"
+    ]
+  },
+  "stats": {
+    "title": "Platform Statistics",
+    "users": {
+      "label": "Active Users",
+      "value": "10K+"
+    },
+    "generated": {
+      "label": "Artworks Generated", 
+      "value": "50K+"
+    },
+    "nfts": {
+      "label": "NFTs Minted",
+      "value": "25K+"
+    },
+    "community": {
+      "label": "Community Members",
+      "value": "100K+"
+    }
+  },
+  "chat": {
+    "title": "Ani (艾妮)",
+    "subtitle": "AniGROK Smart Assistant",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "poweredBy": "Powered by AIN Technology • AniGROK Platform",
+    "thinking": "Ani is thinking...",
+    "close": "Close"
+  },
+  "footer": {
+    "description": "AniGROK - Leading anime culture into the Web3 era",
+    "links": {
+      "platform": "Platform",
+      "community": "Community", 
+      "resources": "Resources",
+      "legal": "Legal"
+    },
+    "social": {
+      "follow": "Follow Us"
+    },
+    "copyright": "© 2025 AniGROK. All rights reserved."
+  },
+  "about": {
+    "title": "About AniGROK",
+    "subtitle": "Leading anime culture into the Web3 era",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To bridge anime culture and blockchain technology, creating the most innovative AI-driven NFT platform for anime enthusiasts worldwide."
+    },
+    "vision": {
+      "title": "Our Vision", 
+      "description": "Building a decentralized creative ecosystem where every anime lover can create, share, and monetize their unique digital artworks through AI technology."
+    },
+    "team": {
+      "title": "Anonymous Team",
+      "description": "Our development team operates anonymously, emphasizing community and technology over individual recognition. We believe in the power of collective creativity and innovation."
+    },
+    "technology": {
+      "title": "Advanced Technology",
+      "description": "Powered by GROK AI and built on Binance Smart Chain, AniGROK represents the cutting edge of AI-generated anime art and NFT technology."
+    }
+  },
+  "marketplace": {
+    "title": "NFT Marketplace",
+    "subtitle": "Discover and collect unique anime NFTs",
+    "featured": "Featured Artworks",
+    "filters": {
+      "all": "All",
+      "new": "New",
+      "trending": "Trending",
+      "rare": "Rare"
+    },
+    "price": "Price",
+    "creator": "Creator",
+    "rarity": "Rarity"
+  },
+  "tokenomics": {
+    "title": "ANI Token",
+    "subtitle": "The heart of the AniGROK ecosystem",
+    "totalSupply": "Total Supply",
+    "distribution": "Token Distribution",
+    "utility": "Token Utility",
+    "roadmap": "Token Roadmap"
+  },
+  "roadmap": {
+    "title": "Development Roadmap",
+    "subtitle": "Our journey to revolutionize anime creation",
+    "phases": {
+      "phase1": "Platform Launch",
+      "phase2": "AI Enhancement",
+      "phase3": "Community Growth",
+      "phase4": "Global Expansion"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "tryAgain": "Try Again",
+    "comingSoon": "Coming Soon",
+    "learnMore": "Learn More"
+  }
+}

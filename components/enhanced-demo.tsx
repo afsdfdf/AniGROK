@@ -16,34 +16,34 @@ export function EnhancedDemo() {
   const [showResult, setShowResult] = useState(false)
   const [generatedImageUrl, setGeneratedImageUrl] = useState<string | null>(null)
   const [apiError, setApiError] = useState<string | null>(null)
-  const [customPrompt, setCustomPrompt] = useState("A colorful cartoon cat with rainbow stripes, cute and playful style")
+  const [customPrompt, setCustomPrompt] = useState("Gothic anime girl with twin tails, fishnet stockings, cute and cool")
 
   const demos = [
     {
-      title: "AI Art Creation",
-      description: "From text description to exquisite artwork",
+      title: "Anime NFT Creation",
+      description: "GROK AI理解你的创意，生成独特动漫角色",
       get prompt() { return customPrompt },
       steps: [
-        { title: "Input Creativity", desc: "Describe the artwork you want", time: "1s" },
-        { title: "AI Generation", desc: "Multi-model collaborative creation", time: "2s" },
-        { title: "Quality Enhancement", desc: "Automatic post-processing enhancement", time: "1s" },
-        { title: "NFT Minting", desc: "One-click on-chain copyright", time: "3s" },
+        { title: "创意输入", desc: "描述你想要的动漫角色", time: "1s" },
+        { title: "GROK理解", desc: "AI深度理解二次元文化", time: "2s" },
+        { title: "角色生成", desc: "专业动漫风格渲染", time: "2s" },
+        { title: "NFT铸造", desc: "BSC链上自动铸造", time: "2s" },
       ],
-      result: "Unique digital art NFT",
+      result: "独一无二的动漫NFT",
       icon: Sparkles,
-      placeholderImage: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=400&h=300&fit=crop&auto=format",
-      resultImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop&auto=format",
+      placeholderImage: "/images/ai-technology.png",
+      resultImage: "/images/ani-showcase.png",
       generationStages: [
-        { text: "Analyzing prompt...", icon: "🔍" },
-        { text: "Initializing AI art models...", icon: "🧠" },
-        { text: "Generating base composition...", icon: "🎨" },
-        { text: "Adding cyberpunk elements...", icon: "⚡" },
-        { text: "Rendering space environment...", icon: "🌌" },
-        { text: "Applying neon effects...", icon: "✨" },
-        { text: "Finalizing artwork...", icon: "🎯" },
-        { text: "Art generation complete!", icon: "🎉" },
+        { text: "Ani正在理解你的创意...", icon: "🤔" },
+        { text: "加载专业动漫训练模型...", icon: "🧠" },
+        { text: "生成角色基础框架...", icon: "👤" },
+        { text: "添加哥特风格元素...", icon: "🖤" },
+        { text: "绘制双马尾发型...", icon: "💇‍♀️" },
+        { text: "添加渔网袜细节...", icon: "🎨" },
+        { text: "调整可爱与酷炫平衡...", icon: "⚖️" },
+        { text: "你的专属waifu诞生了！", icon: "🎌" },
       ],
-      buttonText: "Generate Cyberpunk Art"
+      buttonText: "创造我的Waifu"
     },
     {
       title: "Music Creation",

@@ -20,6 +20,8 @@ interface SiliconFlowResponse {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('📸 Image generation request received');
+    
     const {
       prompt,
       model = 'Kwai-Kolors/Kolors',
@@ -29,11 +31,41 @@ export async function POST(request: NextRequest) {
       guidance_scale = 7.5,
     } = await request.json()
 
+    console.log('📋 Request parameters:', { prompt, model, image_size });
+
     if (!prompt) {
       return NextResponse.json(
         { error: 'Prompt is required' },
         { status: 400 }
       );
+    }
+
+    // 首先检测网络连通性
+    try {
+      const healthCheck = await fetch('https://httpbin.org/get', { 
+        method: 'GET',
+        signal: AbortSignal.timeout(5000)
+      });
+      if (!healthCheck.ok) {
+        throw new Error('Network connectivity issue');
+      }
+    } catch (networkError) {
+      console.error('❌ Network check failed:', networkError);
+      // 返回本地演示图片
+      return NextResponse.json({
+        success: true,
+        data: {
+          images: [{ url: "/images/generated-cat.png" }],
+          timings: { inference: 0 },
+          seed: Math.floor(Math.random() * 1000000),
+          shared_id: "demo",
+          created: Date.now(),
+          prompt: prompt,
+          model: model,
+          fallback: true,
+          message: "网络连接问题，使用演示图片"
+        }
+      });
     }
 
     // 调用SiliconFlow API
@@ -53,18 +85,38 @@ export async function POST(request: NextRequest) {
       })
     };
 
-    const response = await fetch('https://api.siliconflow.cn/v1/images/generations', options);
+    console.log('🚀 Calling SiliconFlow API...');
+    const response = await fetch('https://api.siliconflow.cn/v1/images/generations', {
+      ...options,
+      signal: AbortSignal.timeout(30000) // 30秒超时
+    });
     
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('SiliconFlow API Error:', errorText);
-      return NextResponse.json(
-        { error: 'Failed to generate image', details: errorText },
-        { status: response.status }
-      );
+      console.error('❌ SiliconFlow API Error:', errorText);
+      
+      // API失败时降级到演示图片
+      const demoImages = ["/images/generated-cat.png", "/images/crypto-ai-1.png", "/images/crypto-ai-2.png"];
+      const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)];
+      
+      return NextResponse.json({
+        success: true,
+        data: {
+          images: [{ url: randomImage }],
+          timings: { inference: 0 },
+          seed: Math.floor(Math.random() * 1000000),
+          shared_id: "demo",
+          created: Date.now(),
+          prompt: prompt,
+          model: model,
+          fallback: true,
+          message: "API暂时不可用，使用演示图片"
+        }
+      });
     }
 
     const data: SiliconFlowResponse = await response.json();
+    console.log('✅ SiliconFlow API success');
     
     return NextResponse.json({
       success: true,
@@ -75,16 +127,32 @@ export async function POST(request: NextRequest) {
         shared_id: data.shared_id,
         created: data.created,
         prompt: prompt,
-        model: model
+        model: model,
+        fallback: false
       }
     });
 
   } catch (error) {
-    console.error('API Error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 500 }
-    );
+    console.error('❌ API Error:', error);
+    
+    // 任何其他错误都降级到演示图片
+    const demoImages = ["/images/generated-cat.png", "/images/crypto-ai-1.png", "/images/crypto-ai-2.png"];
+    const randomImage = demoImages[Math.floor(Math.random() * demoImages.length)];
+    
+    return NextResponse.json({
+      success: true,
+      data: {
+        images: [{ url: randomImage }],
+        timings: { inference: 0 },
+        seed: Math.floor(Math.random() * 1000000),
+        shared_id: "demo",
+        created: Date.now(),
+        prompt: "fallback",
+        model: "demo",
+        fallback: true,
+        message: "服务暂时不可用，使用演示图片"
+      }
+    });
   }
 }
 

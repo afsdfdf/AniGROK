@@ -250,7 +250,7 @@ export default function DAOPage() {
                   {/* Governance Stats */}
                   <div className="relative h-48 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl overflow-hidden border border-blue-200">
                     <Image
-                      src="/images/crypto-ai-2.png"
+                      src="/images/token-economy.png"
                       alt="DAO Governance Statistics"
                       fill
                       className="object-cover rounded-xl"

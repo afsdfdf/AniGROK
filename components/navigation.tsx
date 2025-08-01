@@ -1,16 +1,17 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Sparkles, ChevronDown } from "lucide-react"
+import { Menu, X, Sparkles } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { useTranslation } from "@/lib/i18n"
+import { LanguageSwitcher } from "./language-switcher"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const { t } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,59 +20,18 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      if (dropdownTimeoutRef.current) {
-        clearTimeout(dropdownTimeoutRef.current)
-      }
     }
   }, [])
 
-  const handleMouseEnter = (itemName: string) => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current)
-      dropdownTimeoutRef.current = null
-    }
-    setActiveDropdown(itemName)
-  }
-
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null)
-    }, 300) // 300ms延迟，给用户时间移动到下拉菜单
-  }
-
-  const handleDropdownMouseEnter = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current)
-      dropdownTimeoutRef.current = null
-    }
-  }
-
-  const handleDropdownMouseLeave = () => {
-    setActiveDropdown(null)
-  }
-
   const navItems = [
-    { name: "Home", href: "/" },
-    {
-      name: "Products",
-      href: "#features",
-      dropdown: [
-        { name: "Computing Market", href: "/computing" },
-        { name: "AI Generator", href: "/ai-generator" },
-        { name: "DAO Governance", href: "/dao" },
-      ],
-    },
-    { name: "Tokenomics", href: "/tokenomics" },
-    { name: "Roadmap", href: "/roadmap" },
-    { name: "Team", href: "/team" },
-    {
-      name: "Resources",
-      href: "#resources",
-      dropdown: [
-        { name: "Whitepaper", href: "/whitepaper" },
-        { name: "Developer Docs", href: "/developer-docs" },
-      ],
-    },
+    { name: t("navigation.home"), href: "/" },
+    { name: t("navigation.aiGenerator"), href: "/ai-generator" },
+    { name: t("navigation.marketplace"), href: "/marketplace" },
+    { name: t("navigation.aniCharacter"), href: "/ani-character" },
+    { name: t("navigation.token"), href: "/tokenomics" },
+    { name: t("navigation.roadmap"), href: "/roadmap" },
+    { name: t("navigation.about"), href: "/about" },
+    { name: t("navigation.whitepaper"), href: "/whitepaper" },
   ]
 
   return (
@@ -87,7 +47,7 @@ export function Navigation() {
             <div className="relative">
               <Image
                 src="/logoh.png"
-                alt="AIMINT Logo"
+                alt="AniGROK Logo"
                 width={120}
                 height={40}
                 className="h-8 lg:h-10 w-auto group-hover:scale-110 transition-transform duration-300"
@@ -96,58 +56,29 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
-              <div
+              <Link
                 key={item.name}
-                className="relative group"
-                onMouseEnter={() => item.dropdown && handleMouseEnter(item.name)}
-                onMouseLeave={handleMouseLeave}
+                href={item.href}
+                className={`font-medium transition-all duration-300 hover:scale-105 relative group ${
+                  scrolled ? "text-gray-700 hover:text-blue-600" : "text-gray-700 hover:text-blue-600"
+                }`}
               >
-                <Link
-                  href={item.href}
-                  className={`flex items-center gap-1 font-medium transition-all duration-300 hover:scale-105 relative group ${
-                    scrolled ? "text-gray-700 hover:text-blue-600" : "text-gray-700 hover:text-blue-600"
-                  }`}
-                >
-                  {item.name}
-                  {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:w-full transition-all duration-300" />
-                </Link>
-
-                {/* Dropdown Menu */}
-                {item.dropdown && activeDropdown === item.name && (
-                  <>
-                    {/* 增加一个透明的连接区域，减少鼠标移动时的空隙 */}
-                    <div className="absolute top-full left-0 w-48 h-2 bg-transparent z-40" />
-                    <div 
-                      className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-2 z-50"
-                      onMouseEnter={handleDropdownMouseEnter}
-                      onMouseLeave={handleDropdownMouseLeave}
-                    >
-                    {item.dropdown.map((dropdownItem) => (
-                      <Link
-                        key={dropdownItem.name}
-                        href={dropdownItem.href}
-                        className="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-300"
-                      >
-                        {dropdownItem.name}
-                      </Link>
-                    ))}
-                  </div>
-                  </>
-                )}
-              </div>
+                {item.name}
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:w-full transition-all duration-300" />
+              </Link>
             ))}
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
             <Button
               variant="outline"
               className="border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600 px-6 py-2 rounded-xl transition-all duration-300"
             >
-              Sign In
+              {t("navigation.signIn")}
             </Button>
           </div>
 
@@ -163,38 +94,26 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden py-6 border-t border-gray-200 bg-white/95 backdrop-blur-xl">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <div key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="block text-gray-700 hover:text-blue-600 transition-colors duration-300 py-2 px-4 rounded-lg hover:bg-blue-50"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <div className="ml-4 mt-2 space-y-2">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block text-gray-600 hover:text-blue-600 transition-colors duration-300 py-1 px-4 text-sm"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {dropdownItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block text-gray-700 hover:text-blue-600 transition-colors duration-300 py-2 px-4 rounded-lg hover:bg-blue-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
               ))}
               <div className="flex flex-col gap-3 mt-4 px-4">
+                <div className="flex items-center justify-center mb-2">
+                  <LanguageSwitcher />
+                </div>
                 <Button
                   variant="outline"
                   className="border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600 py-3 rounded-xl"
                 >
-                  Sign In
+                  {t("navigation.signIn")}
                 </Button>
               </div>
             </div>

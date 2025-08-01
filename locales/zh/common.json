@@ -1,0 +1,212 @@
+{
+  "navigation": {
+    "home": "首页",
+    "aiGenerator": "AI生成器",
+    "marketplace": "NFT市场",
+    "aniCharacter": "Ani角色",
+    "token": "ANI代币",
+    "roadmap": "路线图",
+    "about": "关于我们",
+    "whitepaper": "白皮书",
+    "signIn": "登录"
+  },
+  "hero": {
+    "badge": "与Ani一起创造 • 现已上线",
+    "title": "AniGROK",
+    "subtitle": "AI NFT 平台",
+    "slides": [
+      "与Ani一起创作独特的anime角色",
+      "AI驱动的智能对话与NFT生成体验",
+      "探索二次元文化与区块链的完美结合"
+    ],
+    "description": "与虚拟waifu助手Ani进行智能对话，体验AI驱动的anime角色生成技术。探索二次元文化与Web3技术的创新融合，立即开始你的创作之旅。",
+    "chatButton": "与Ani聊天",
+    "generateButton": "体验AI生成 ✨",
+    "quickStats": {
+      "community": "Anime社区",
+      "communityValue": "团结",
+      "ai": "GROK AI",
+      "aiValue": "驱动",
+      "future": "NFT未来",
+      "futureValue": "光明"
+    },
+    "demo": {
+      "title": "AniGROK工作室",
+      "subtitle": "动漫NFT生成器",
+      "promptLabel": "输入你的动漫提示",
+      "generating": "AI创作中...",
+      "ready": "点击下方按钮开始AI创作 ✨",
+      "generateButton": "🎨 点击生成",
+      "mintButton": "铸造NFT 🎌"
+    }
+  },
+  "features": {
+    "title": "平台特色",
+    "subtitle": "用前沿技术体验AI生成动漫的魅力",
+    "aiChat": {
+      "title": "智能AI对话",
+      "description": "与Ani虚拟助手深度交流",
+      "features": [
+        "实时智能对话，理解你的创意需求",
+        "专业的anime角色创作指导建议",
+        "深度的二次元文化交流互动",
+        "24/7在线陪伴，随时为你服务"
+      ]
+    },
+    "demo": {
+      "title": "互动演示",
+      "description": "亲身体验完整生成过程",
+      "features": [
+        "完整的生成流程技术演示体验",
+        "多种anime风格的预览展示",
+        "交互式界面，直观易懂操作",
+        "实时反馈，了解技术实现"
+      ]
+    },
+    "character": {
+      "title": "虚拟角色Ani",
+      "description": "代表未来的专属虚拟偶像",
+      "features": [
+        "独特的双马尾哥特美学人物设定",
+        "丰富的交互功能和个性化体验",
+        "专业的创作指导和灵感提供",
+        "代表数字交互的未来发展方向"
+      ]
+    },
+    "future": {
+      "title": "无限未来",
+      "description": "引领动漫文化进入Web3时代",
+      "features": [
+        "社区驱动的生态系统持续发展",
+        "AI技术在创作领域的持续创新",
+        "二次元文化的传承与推广普及",
+        "全球化的anime爱好者社区建设"
+      ]
+    }
+  },
+  "gallery": {
+    "title": "创作画廊",
+    "subtitle": "探索AI技术创造的精彩动漫艺术作品",
+    "viewAll": "查看全部",
+    "filter": {
+      "all": "全部",
+      "cute": "可爱",
+      "cool": "酷炫",
+      "gothic": "哥特"
+    },
+    "stats": {
+      "views": "浏览",
+      "likes": "喜欢"
+    }
+  },
+  "demo": {
+    "title": "体验AI生成",
+    "subtitle": "看看AI如何创造你的专属动漫角色",
+    "steps": [
+      "描述你的理想角色",
+      "AI理解和分析",
+      "生成独特艺术作品",
+      "铸造为NFT"
+    ]
+  },
+  "stats": {
+    "title": "平台数据",
+    "users": {
+      "label": "活跃用户",
+      "value": "1万+"
+    },
+    "generated": {
+      "label": "生成作品",
+      "value": "5万+"
+    },
+    "nfts": {
+      "label": "铸造NFT",
+      "value": "2.5万+"
+    },
+    "community": {
+      "label": "社区成员",
+      "value": "10万+"
+    }
+  },
+  "chat": {
+    "title": "Ani (艾妮)",
+    "subtitle": "AniGROK智能助手",
+    "placeholder": "输入你的消息...",
+    "send": "发送",
+    "poweredBy": "由AIN技术驱动 • AniGROK平台",
+    "thinking": "Ani正在思考中...",
+    "close": "关闭"
+  },
+  "footer": {
+    "description": "AniGROK - 引领动漫文化进入Web3时代",
+    "links": {
+      "platform": "平台",
+      "community": "社区",
+      "resources": "资源",
+      "legal": "法律"
+    },
+    "social": {
+      "follow": "关注我们"
+    },
+    "copyright": "© 2025 AniGROK. 保留所有权利。"
+  },
+  "about": {
+    "title": "关于AniGROK",
+    "subtitle": "引领动漫文化进入Web3时代",
+    "mission": {
+      "title": "我们的使命",
+      "description": "架设动漫文化与区块链技术的桥梁，为全球动漫爱好者打造最具创新性的AI驱动NFT平台。"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "description": "构建去中心化的创意生态系统，让每一位动漫爱好者都能通过AI技术创造、分享和变现独特的数字艺术作品。"
+    },
+    "team": {
+      "title": "匿名团队",
+      "description": "我们的开发团队采用匿名运作方式，强调社区和技术胜过个人认知。我们相信集体创造力和创新的力量。"
+    },
+    "technology": {
+      "title": "先进技术",
+      "description": "由GROK AI驱动，构建在币安智能链上，AniGROK代表了AI生成动漫艺术和NFT技术的最前沿。"
+    }
+  },
+  "marketplace": {
+    "title": "NFT市场",
+    "subtitle": "发现和收藏独特的动漫NFT",
+    "featured": "精选作品",
+    "filters": {
+      "all": "全部",
+      "new": "最新",
+      "trending": "热门",
+      "rare": "稀有"
+    },
+    "price": "价格",
+    "creator": "创作者",
+    "rarity": "稀有度"
+  },
+  "tokenomics": {
+    "title": "ANI代币",
+    "subtitle": "AniGROK生态系统的核心",
+    "totalSupply": "总供应量",
+    "distribution": "代币分配",
+    "utility": "代币用途",
+    "roadmap": "代币路线图"
+  },
+  "roadmap": {
+    "title": "发展路线图",
+    "subtitle": "我们革命性动漫创作的旅程",
+    "phases": {
+      "phase1": "平台启动",
+      "phase2": "AI增强",
+      "phase3": "社区增长",
+      "phase4": "全球扩展"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "tryAgain": "重试",
+    "comingSoon": "即将推出",
+    "learnMore": "了解更多"
+  }
+}

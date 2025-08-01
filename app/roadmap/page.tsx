@@ -4,87 +4,92 @@ import Link from "next/link"
 export default function RoadmapPage() {
   const roadmapData = [
     {
-      quarter: "2025 Q1",
-      title: "Infrastructure Development",
-      status: "completed",
-      progress: 100,
-      icon: Rocket,
-      color: "green",
-      achievements: [
-        "✅ Core team formation completed",
-        "✅ Technical architecture design",
-        "✅ Smart contract development",
-      ],
-      upcoming: [],
-    },
-    {
-      quarter: "2025 Q2",
-      title: "Product Development",
-      status: "in-progress",
-      progress: 75,
-      icon: Zap,
-      color: "blue",
-      achievements: [
-        "✅ AI Minting Engine v1.0",
-        "✅ Testnet deployment",
-        "✅ Community building launch",
-        "🔄 Beta version testing",
-      ],
-      upcoming: ["Mobile app development", "Security audit completion"],
-    },
-    {
       quarter: "2025 Q3",
-      title: "Mainnet Launch",
+      title: "项目上线 (Project Launch)",
       status: "upcoming",
-      progress: 0,
-      icon: Globe,
+      progress: 30,
+      icon: Rocket,
       color: "purple",
-      achievements: [],
+      achievements: [
+        "✅ Anonymous team formation",
+        "✅ Ani character design completion",
+        "🔄 BSC smart contract development",
+      ],
       upcoming: [
-        "Official mainnet release",
-        "Public token sale",
-        "Decentralized computing network",
-        "DAO governance launch",
+        "ANI token deployment on BSC",
+        "AniGROK platform MVP launch",
+        "AI anime art generation engine",
+        "Community Telegram group launch"
       ],
     },
     {
       quarter: "2025 Q4",
-      title: "Ecosystem Expansion",
+      title: "NFT 市场启动 (NFT Market Launch)",
+      status: "planned",
+      progress: 0,
+      icon: Globe,
+      color: "blue",
+      achievements: [],
+      upcoming: [
+        "Internal NFT trading market",
+        "ANI and stablecoin settlement",
+        "AI model optimization",
+        "Cross-platform anime IP collaborations"
+      ],
+    },
+    {
+      quarter: "2026 Q1",
+      title: "合作拓展 (Partnership Expansion)",
       status: "planned",
       progress: 0,
       icon: Users,
+      color: "green",
+      achievements: [],
+      upcoming: [
+        "Strategic partnership alliances",
+        "NFT platform technical integration",
+        "Gaming & metaverse collaborations",
+        "Creator hackathon events"
+      ],
+    },
+    {
+      quarter: "2026 Q2",
+      title: "DAO 治理 (DAO Governance)",
+      status: "planned",
+      progress: 0,
+      icon: Target,
       color: "orange",
       achievements: [],
       upcoming: [
-        "Multi-chain deployment support",
-        "Enterprise-grade API",
-        "Partner integrations",
-        "Global market expansion",
+        "Decentralized Autonomous Organization launch",
+        "ANI holder governance voting",
+        "Community council formation",
+        "Open source module deployment"
       ],
     },
   ]
 
   const milestones = [
     {
-      date: "June 2025",
-      title: "Official Mainnet Launch",
-      description: "Full feature release, open to public use",
+      date: "August 2, 2025 18:00 GMT+8",
+      title: "AniGROK Platform Launch",
+      description: "ANI token goes live on BSC, platform opens for public beta",
       status: "upcoming",
       icon: Rocket,
     },
     {
-      date: "September 2025",
-      title: "1 Million Users Milestone",
-      description: "Global user count reaches important milestone",
-      status: "planned",
-      icon: Users,
-    },
-    {
       date: "December 2025",
-      title: "Ecosystem Fully Mature",
-      description: "Complete creator economy ecosystem established",
+      title: "NFT Marketplace Active",
+      description: "Internal trading market with ANI token settlements",
       status: "planned",
       icon: Globe,
+    },
+    {
+      date: "June 2026",
+      title: "DAO Governance Live",
+      description: "Community-driven decision making through ANI token voting",
+      status: "planned",
+      icon: Users,
     },
   ]
 

@@ -1,0 +1,200 @@
+{
+  "logos": [
+    {
+      "name": "logo-main.png",
+      "prompt": "anime style, cute gothic lolita girl mascot logo, twin tails, purple and pink colors, simple design, clean background, 2D art style",
+      "type": "real",
+      "category": "brand"
+    },
+    {
+      "name": "logo-transparent.png",
+      "prompt": "anime style, minimalist waifu mascot logo, transparent background, gothic cute style, purple gradient, simple design",
+      "type": "real",
+      "category": "brand"
+    }
+  ],
+  "hero": [
+    {
+      "name": "hero-bg-1.png",
+      "prompt": "anime style, magical fantasy background, sparkles and stars, purple pink gradient sky, dreamy atmosphere, high quality, detailed",
+      "type": "demo",
+      "category": "background"
+    },
+    {
+      "name": "hero-bg-2.png",
+      "prompt": "anime style, cyberpunk city background, neon lights, futuristic buildings, purple and pink neon glow, night scene",
+      "type": "demo",
+      "category": "background"
+    }
+  ],
+  "features": [
+    {
+      "name": "ai-brain.png",
+      "prompt": "anime style, cute AI brain illustration, glowing neural networks, purple and pink colors, kawaii style, tech elements, 2D art",
+      "type": "demo",
+      "category": "feature"
+    },
+    {
+      "name": "nft-creation.png",
+      "prompt": "anime style, NFT minting process illustration, digital art creation, blockchain elements, cute anime girl creating art, colorful",
+      "type": "demo",
+      "category": "feature"
+    },
+    {
+      "name": "ani-character.png",
+      "prompt": "anime style, gothic lolita virtual assistant, twin tails, fishnet stockings, cute and cool, purple dress, friendly pose",
+      "type": "demo",
+      "category": "feature"
+    },
+    {
+      "name": "token-economy.png",
+      "prompt": "anime style, cryptocurrency and economy illustration, coins and charts, anime girl with money, financial success, kawaii style",
+      "type": "demo",
+      "category": "feature"
+    }
+  ],
+  "generated": [
+    {
+      "name": "generated-1.png",
+      "prompt": "anime style, gothic lolita girl with twin tails, dark dress, fishnet stockings, cute and elegant, high quality, detailed, 2D art",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-2.png",
+      "prompt": "anime style, kawaii cat girl with purple hair, maid outfit, adorable expression, high quality, detailed, 2D art, manga style",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-3.png",
+      "prompt": "anime style, cyberpunk anime warrior girl, neon armor, glowing eyes, cool and futuristic, high quality, detailed, 2D art",
+      "type": "real",
+      "category": "generated"
+    },
+    {
+      "name": "generated-4.png",
+      "prompt": "anime style, elegant anime princess, traditional Japanese kimono, beautiful and graceful, high quality, detailed, 2D art",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-5.png",
+      "prompt": "anime style, magical anime girl, sparkles and stars, enchanting and mystical, high quality, detailed, 2D art, colorful",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-6.png",
+      "prompt": "anime style, school uniform anime girl, glasses, intelligent and cute expression, high quality, detailed, 2D art",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-7.png",
+      "prompt": "anime style, angel anime girl, white wings, pure and graceful, heavenly atmosphere, high quality, detailed, 2D art",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-8.png",
+      "prompt": "anime style, witch anime girl, hat and magic wand, mysterious and cute, magical atmosphere, high quality, detailed, 2D art",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-9.png",
+      "prompt": "anime style, ninja anime girl, dark outfit, stealthy and cool, action pose, high quality, detailed, 2D art",
+      "type": "demo",
+      "category": "generated"
+    },
+    {
+      "name": "generated-10.png",
+      "prompt": "anime style, fairy anime girl, flower crown, nature themed, forest background, high quality, detailed, 2D art, colorful",
+      "type": "real",
+      "category": "generated"
+    }
+  ],
+  "crypto": [
+    {
+      "name": "crypto-ai-1.png",
+      "prompt": "anime style, cute anime girl with cryptocurrency symbols, blockchain technology, digital money, kawaii style, colorful",
+      "type": "demo",
+      "category": "crypto"
+    },
+    {
+      "name": "crypto-ai-2.png",
+      "prompt": "anime style, anime girl trading NFTs, digital marketplace, computer screen, tech-savvy, modern setting, 2D art",
+      "type": "demo",
+      "category": "crypto"
+    },
+    {
+      "name": "blockchain-network.png",
+      "prompt": "anime style, network visualization, connected nodes, blockchain illustration, cyber space, purple and blue colors, tech art",
+      "type": "demo",
+      "category": "crypto"
+    }
+  ],
+  "gallery": [
+    {
+      "name": "gallery-1.png",
+      "prompt": "anime style, traditional shrine maiden, red and white outfit, serene expression, japanese temple background, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-2.png",
+      "prompt": "anime style, steampunk anime girl, gears and clockwork, vintage technology, brown and copper colors, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-3.png",
+      "prompt": "anime style, space anime girl, astronaut suit, stars and planets, cosmic background, sci-fi theme, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-4.png",
+      "prompt": "anime style, pirate anime girl, tricorn hat, sword, ocean background, adventure theme, detailed, 2D art, colorful",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-5.png",
+      "prompt": "anime style, vampire anime girl, gothic clothing, bat wings, night castle background, mysterious, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-6.png",
+      "prompt": "anime style, chef anime girl, cooking outfit, kitchen background, delicious food, warm atmosphere, detailed, 2D art",
+      "type": "real",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-7.png",
+      "prompt": "anime style, artist anime girl, paintbrush and palette, colorful studio, creative atmosphere, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-8.png",
+      "prompt": "anime style, musician anime girl, violin, concert hall background, elegant performance, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-9.png",
+      "prompt": "anime style, detective anime girl, magnifying glass, mystery solving, library background, intelligent, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    },
+    {
+      "name": "gallery-10.png",
+      "prompt": "anime style, dancer anime girl, flowing dress, stage performance, spotlight, graceful movement, detailed, 2D art",
+      "type": "demo",
+      "category": "gallery"
+    }
+  ]
+}

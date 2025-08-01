@@ -1,69 +1,54 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Brain, Cpu, Share2, TrendingUp, ArrowRight, CheckCircle } from "lucide-react"
+import { Brain, Palette, Heart, Coins, ArrowRight, CheckCircle, Sparkles } from "lucide-react"
 import Image from "next/image"
+import { useTranslation } from "@/lib/i18n"
 
 export function Features() {
+  const { t } = useTranslation()
+  
   const features = [
     {
       icon: Brain,
-      title: "AI Smart Minting",
-      subtitle: "Prompt to NFT",
-      description: "Transform creative prompts into unique digital assets",
-      benefits: [
-        "Complete AI generation to NFT minting in 3 seconds",
-        "Support for text, image, audio multi-modal content",
-        "Automatic copyright protection and rarity verification",
-        "Smart pricing and market recommendations",
-      ],
-      image: "/images/ai-brain.png",
-      gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-50 to-cyan-50",
+      title: t("features.aiChat.title"),
+      subtitle: t("features.aiChat.description"),
+      description: t("features.aiChat.description"),
+      benefits: t("features.aiChat.features"),
+      image: "/images/ai-technology.png",
+      gradient: "from-purple-500 to-pink-500",
+      bgGradient: "from-purple-50 to-pink-50",
     },
     {
-      icon: Cpu,
-      title: "Decentralized Computing",
-      subtitle: "Decentralized Computing",
-      description: "Global computing network reducing AI computation costs",
-      benefits: [
-        "Reduce computing costs by over 60%",
-        "Support from 10,000+ global nodes",
-        "Smart load balancing and scheduling",
-        "Pay-as-you-go, elastic scaling",
-      ],
-      image: "/images/blockchain-network.png",
-      gradient: "from-purple-500 to-indigo-500",
-      bgGradient: "from-purple-50 to-indigo-50",
+      icon: Palette,
+      title: t("features.demo.title"),
+      subtitle: t("features.demo.description"),
+      description: t("features.demo.description"),
+      benefits: t("features.demo.features"),
+      image: "/images/nft-creation.png",
+      gradient: "from-pink-500 to-purple-500",
+      bgGradient: "from-pink-50 to-purple-50",
     },
     {
-      icon: Share2,
-      title: "Open Model Protocol",
-      subtitle: "Open Model Protocol",
-      description: "Developers upload models and share revenue distribution",
-      benefits: [
-        "Automatic distribution of model usage revenue",
-        "Version management and quality assessment",
-        "Developer incentive mechanisms",
-        "Community governance and voting",
-      ],
-      image: "/images/crypto-ai-1.png",
+      icon: Heart,
+      title: t("features.character.title"),
+      subtitle: t("features.character.description"),
+      description: t("features.character.description"),
+      benefits: t("features.character.features"),
+      image: "/images/ani-avatar.png",
       gradient: "from-indigo-500 to-purple-500",
       bgGradient: "from-indigo-50 to-purple-50",
     },
     {
-      icon: TrendingUp,
-      title: "Liquidity Mining",
-      subtitle: "Liquidity Mining",
-      description: "NFT trading mining for continuous revenue",
-      benefits: [
-        "Trade to mine, earn AIMINT tokens",
-        "Continuous royalty income distribution",
-        "Liquidity provider rewards",
-        "Governance rights and voting power",
-      ],
-      image: "/images/crypto-ai-2.png",
-      gradient: "from-cyan-500 to-teal-500",
-      bgGradient: "from-cyan-50 to-teal-50",
+      icon: Coins,
+      title: t("features.future.title"),
+      subtitle: t("features.future.description"),
+      description: t("features.future.description"),
+      benefits: t("features.future.features"),
+      image: "/images/token-economy.png",
+      gradient: "from-amber-500 to-orange-500",
+      bgGradient: "from-amber-50 to-orange-50",
     },
   ]
 
@@ -72,19 +57,15 @@ export function Features() {
       <div className="container mx-auto px-3 sm:px-4 lg:px-6">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-200/50 rounded-full text-blue-700 font-medium mb-4 sm:mb-6 shadow-lg backdrop-blur-sm">
-            <Brain className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span className="text-xs sm:text-sm">Core Features</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-200/50 rounded-full text-purple-700 font-medium mb-4 sm:mb-6 shadow-lg backdrop-blur-sm">
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="text-xs sm:text-sm">{t("features.title")}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
-            Redefining{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              AI Creation
-            </span>
+            {t("features.title")}
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-            Transform AI-generated content into valuable digital assets through blockchain technology, building a
-            complete creator economy ecosystem
+            {t("features.subtitle")}
           </p>
         </div>
 
@@ -139,7 +120,7 @@ export function Features() {
                 <CardContent className="px-6 sm:px-8 pb-6 sm:pb-8">
                   {/* Benefits List */}
                   <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    {feature.benefits.map((benefit, benefitIndex) => (
+                    {(Array.isArray(feature.benefits) ? feature.benefits : []).map((benefit, benefitIndex) => (
                       <div key={benefitIndex} className="flex items-start gap-2 sm:gap-3">
                         <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                         <span className="text-slate-700 text-sm sm:text-base">{benefit}</span>

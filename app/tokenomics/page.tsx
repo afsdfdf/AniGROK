@@ -9,54 +9,54 @@ import Link from "next/link"
 export default function TokenomicsPage() {
   const tokenData = [
     {
-      name: "Asset Onboarding and Liquidity Incentives",
+      name: "Community & Ecosystem",
       value: 50,
-      amount: 500000000,
-      color: "#06b6d4",
-      tge: "33%",
-      cliff: "0 months",
-      vesting: "24 months",
-      note: "For incentivizing quality assets and providing liquidity incentives",
-    },
-    {
-      name: "Technical Development and Platform Operations",
-      value: 15,
-      amount: 150000000,
-      color: "#3b82f6",
-      tge: "20%",
-      cliff: "12 months",
-      vesting: "24 months",
-      note: "Technical development, platform operations and maintenance",
-    },
-    {
-      name: "Compliance and Governance Fund",
-      value: 15,
       amount: 150000000,
       color: "#8b5cf6",
-      tge: "20%",
-      cliff: "12 months",
-      vesting: "24 months",
-      note: "Ensuring regulatory compliance and governance",
-    },
-    {
-      name: "Foundation Reserve",
-      value: 10,
-      amount: 100000000,
-      color: "#f59e0b",
-      tge: "20%",
+      tge: "30%",
       cliff: "0 months",
-      vesting: "18 months",
-      note: "Reserve funds for future ecosystem development",
+      vesting: "24 months",
+      note: "Community airdrops, creator incentives, liquidity mining rewards, and ecosystem fund",
     },
     {
-      name: "Team and Advisors",
-      value: 10,
-      amount: 100000000,
+      name: "Team & Development",
+      value: 20,
+      amount: 60000000,
       color: "#10b981",
       tge: "10%",
       cliff: "12 months",
       vesting: "36 months",
-      note: "Team incentives and advisor rewards",
+      note: "Core team incentives and product development with long-term commitment",
+    },
+    {
+      name: "Marketing & Partnerships",
+      value: 15,
+      amount: 45000000,
+      color: "#f59e0b",
+      tge: "25%",
+      cliff: "0 months",
+      vesting: "18 months",
+      note: "Market promotion, brand partnerships, and exchange listings",
+    },
+    {
+      name: "Strategic Cooperation",
+      value: 10,
+      amount: 30000000,
+      color: "#06b6d4",
+      tge: "20%",
+      cliff: "6 months",
+      vesting: "24 months",
+      note: "Strategic partnerships, IP collaborations, and KOL incentives",
+    },
+    {
+      name: "Liquidity Reserve",
+      value: 5,
+      amount: 15000000,
+      color: "#ef4444",
+      tge: "50%",
+      cliff: "0 months",
+      vesting: "12 months",
+      note: "DEX liquidity provision, market stability, and potential buyback operations",
     },
   ]
 
@@ -74,7 +74,7 @@ export default function TokenomicsPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
                 <Coins className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">AIMINT Tokenomics</span>
+              <span className="text-xl font-bold text-gray-900">ANI Tokenomics</span>
             </div>
           </div>
         </div>
@@ -83,20 +83,43 @@ export default function TokenomicsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-blue-700 font-medium mb-6 shadow-lg">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-purple-700 font-medium mb-6 shadow-lg">
             <Coins className="w-4 h-4" />
-            <span>Token Economic Model</span>
+            <span>经济模型设计</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              AIMINT Token
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              ANI代币
             </span>{" "}
-            Economic System
+            经济模型
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Building a sustainable token economy ecosystem through scientific release
-            mechanisms and multiple utilities
+            基于BSC区块链的双重用途代币设计，结合Meme文化与实用功能，为AniGROK生态系统提供经济支撑
           </p>
+          
+          {/* Token Key Info */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-4xl mx-auto">
+            <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="text-sm text-gray-600">Total Supply</div>
+              <div className="text-2xl font-bold text-gray-900">300M</div>
+              <div className="text-xs text-purple-600">ANI Tokens</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="text-sm text-gray-600">Blockchain</div>
+              <div className="text-2xl font-bold text-gray-900">BSC</div>
+              <div className="text-xs text-purple-600">BEP-20</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="text-sm text-gray-600">Launch Date</div>
+              <div className="text-2xl font-bold text-gray-900">Aug 2</div>
+              <div className="text-xs text-purple-600">2025 18:00 GMT+8</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="text-sm text-gray-600">Type</div>
+              <div className="text-2xl font-bold text-gray-900">Meme</div>
+              <div className="text-xs text-purple-600">+ Utility</div>
+            </div>
+          </div>
         </div>
 
         {/* Token Distribution */}
@@ -152,7 +175,7 @@ export default function TokenomicsPage() {
                     </div>
                     <div className="text-right">
                       <div className="font-bold text-gray-900">{item.value}%</div>
-                      <div className="text-sm text-gray-600">{(item.amount / 1000000000).toFixed(1)}B</div>
+                      <div className="text-sm text-gray-600">{(item.amount / 1000000).toFixed(0)}M</div>
                     </div>
                   </div>
                 ))}
@@ -259,7 +282,7 @@ export default function TokenomicsPage() {
                           {item.value}%
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-900">
-                          {(item.amount / 1000000000).toFixed(1)}B
+                          {(item.amount / 1000000).toFixed(0)}M
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-blue-600 font-medium">
                           {item.tge}
@@ -279,7 +302,7 @@ export default function TokenomicsPage() {
                   <tr className="bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap font-bold text-gray-900">Total</td>
                     <td className="px-6 py-4 whitespace-nowrap text-center font-bold text-gray-900">100%</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-center font-bold text-gray-900">1.0B</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center font-bold text-gray-900">300M</td>
                     <td className="px-6 py-4 whitespace-nowrap text-center"></td>
                     <td className="px-6 py-4 whitespace-nowrap text-center"></td>
                     <td className="px-6 py-4 whitespace-nowrap text-center"></td>
@@ -299,65 +322,65 @@ export default function TokenomicsPage() {
         </Card>
 
         {/* Utility & Use Cases */}
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-blue-100 mb-16">
+        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 lg:p-12 border border-purple-100 mb-16">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Token Utility</h3>
-            <p className="text-lg text-gray-600">Multiple application scenarios of AIMINT tokens in the ecosystem</p>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">ANI Token Utility</h3>
+            <p className="text-lg text-gray-600">Multiple use cases of ANI tokens in the AniGROK anime NFT ecosystem</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               {
                 icon: Zap,
-                title: "Computing Payment",
-                description: "Use AIMINT tokens to pay for AI computing resources with discount benefits",
-                color: "blue",
-              },
-              {
-                icon: TrendingUp,
-                title: "Trading Fees",
-                description: "NFT trading fee discounts, more tokens held means bigger discounts",
-                color: "green",
-              },
-              {
-                icon: Users,
-                title: "Governance Voting",
-                description: "Participate in DAO governance and vote on important proposals",
+                title: "NFT Generation Payment",
+                description: "Pay for AI anime art generation services with ANI tokens",
                 color: "purple",
               },
               {
+                icon: TrendingUp,
+                title: "NFT Market Trading",
+                description: "Use ANI as trading currency in the AniGROK NFT marketplace",
+                color: "pink",
+              },
+              {
+                icon: Users,
+                title: "Community Governance",
+                description: "Participate in DAO governance and vote on platform decisions",
+                color: "indigo",
+              },
+              {
                 icon: Award,
-                title: "Creator Incentives",
-                description: "Quality content creators receive AIMINT token rewards",
+                title: "Creator Rewards",
+                description: "Active creators and community contributors earn ANI token rewards",
                 color: "orange",
               },
               {
                 icon: Shield,
-                title: "Ecosystem Benefits",
-                description: "Token holders enjoy platform privileges and priority access",
-                color: "indigo",
+                title: "Premium Features",
+                description: "Access special Ani character interactions and exclusive NFT drops",
+                color: "emerald",
               },
               {
                 icon: Coins,
-                title: "Royalty Distribution",
-                description: "Token holders share platform trading royalty income",
-                color: "yellow",
+                title: "Staking Benefits",
+                description: "Stake ANI tokens for platform fee discounts and priority access",
+                color: "amber",
               },
             ].map((useCase, index) => (
               <div key={index} className="text-center group">
                 <div
                   className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-lg ${
-                    useCase.color === "blue"
-                      ? "bg-gradient-to-br from-blue-500 to-blue-600"
-                      : useCase.color === "green"
-                        ? "bg-gradient-to-br from-emerald-500 to-green-600"
-                        : useCase.color === "purple"
-                          ? "bg-gradient-to-br from-purple-500 to-indigo-600"
+                    useCase.color === "purple"
+                      ? "bg-gradient-to-br from-purple-500 to-purple-600"
+                      : useCase.color === "pink"
+                        ? "bg-gradient-to-br from-pink-500 to-pink-600"
+                        : useCase.color === "indigo"
+                          ? "bg-gradient-to-br from-indigo-500 to-indigo-600"
                           : useCase.color === "orange"
                             ? "bg-gradient-to-br from-orange-500 to-amber-600"
-                            : useCase.color === "indigo"
-                              ? "bg-gradient-to-br from-indigo-500 to-purple-600"
-                              : "bg-gradient-to-br from-yellow-500 to-orange-600"
+                            : useCase.color === "emerald"
+                              ? "bg-gradient-to-br from-emerald-500 to-emerald-600"
+                              : "bg-gradient-to-br from-amber-500 to-amber-600"
                   }`}
                 >
                   <useCase.icon className="w-8 h-8 text-white" />
