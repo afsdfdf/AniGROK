@@ -127,7 +127,13 @@ export function InteractiveStats() {
   return (
     <section
       id="stats-section"
-      className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 to-blue-50 border-b border-slate-200/50"
+      className="py-12 sm:py-16 border-b border-slate-200/50 relative overflow-hidden"
+      style={{
+        background: `linear-gradient(to bottom right, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1)), url('/images/stats-dashboard.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6">
         {/* Header */}

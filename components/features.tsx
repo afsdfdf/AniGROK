@@ -16,7 +16,7 @@ export function Features() {
       subtitle: t("features.aiChat.description"),
       description: t("features.aiChat.description"),
       benefits: t("features.aiChat.features"),
-      image: "/images/ai-technology.png",
+      image: "/images/features-grid.png",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50",
     },

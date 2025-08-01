@@ -56,7 +56,7 @@ export default function AniCharacterPage() {
               <CardContent className="p-8">
                 <div className="relative aspect-square bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/ani-showcase.png"
+                    src="/images/ani-character-full.png"
                     alt="Ani Character - Gothic Anime Style"
                     fill
                     className="object-contain"

@@ -19,6 +19,7 @@ import {
   LineChart,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import {
   PieChart as RechartsPieChart,
   Pie,
@@ -299,6 +300,16 @@ export default function WhitepaperPage() {
             <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-2xl border border-purple-100">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Layered Architecture Design</h3>
               <p className="text-gray-700 mb-6">AIMINT adopts a modular layered architecture to ensure system scalability, security, and high performance.</p>
+              <div className="flex justify-center">
+                <div className="relative w-full max-w-md aspect-square">
+                  <Image
+                    src="/images/technical-architecture.png"
+                    alt="AniGROK Technical Architecture"
+                    fill
+                    className="object-contain rounded-lg"
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="space-y-6">

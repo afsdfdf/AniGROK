@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2025-08-01T08:33:30.691Z",
+  "totalRequested": 23,
+  "successCount": 9,
+  "failCount": 14,
+  "images": [
+    {
+      "filename": "hero-anime-banner.png",
+      "prompt": "Epic anime banner with multiple characters, AniGROK logo, purple and pink theme, professional design",
+      "category": "hero"
+    },
+    {
+      "filename": "features-grid.png",
+      "prompt": "Four anime characters representing different features: AI chat, NFT creation, marketplace, community",
+      "category": "general"
+    },
+    {
+      "filename": "stats-dashboard.png",
+      "prompt": "Anime style statistics dashboard, colorful charts, cute characters with numbers",
+      "category": "general"
+    },
+    {
+      "filename": "ai-generator-hero.png",
+      "prompt": "AI creating anime character in real-time, magical particles, transformation process",
+      "category": "hero"
+    },
+    {
+      "filename": "generation-styles.png",
+      "prompt": "Multiple anime art styles showcase: gothic, cute, cyberpunk, traditional",
+      "category": "general"
+    },
+    {
+      "filename": "ai-brain-anime.png",
+      "prompt": "Anime girl with AI brain visualization, neural networks, technology fusion",
+      "category": "general"
+    },
+    {
+      "filename": "nft-gallery-premium.png",
+      "prompt": "Premium anime NFT gallery, luxury display cases, rare collectibles",
+      "category": "marketplace"
+    },
+    {
+      "filename": "marketplace-trading.png",
+      "prompt": "Anime characters trading NFTs, digital marketplace, blockchain visualization",
+      "category": "marketplace"
+    },
+    {
+      "filename": "collection-showcase.png",
+      "prompt": "Exclusive anime NFT collection display, museum-style presentation",
+      "category": "general"
+    },
+    {
+      "filename": "token-ecosystem.png",
+      "prompt": "ANI token ecosystem visualization, anime characters using tokens, circular economy",
+      "category": "tokenomics"
+    },
+    {
+      "filename": "staking-rewards.png",
+      "prompt": "Anime characters earning rewards, staking mechanism, golden coins and benefits",
+      "category": "general"
+    },
+    {
+      "filename": "token-distribution.png",
+      "prompt": "Pie chart with anime characters, token allocation visualization, colorful segments",
+      "category": "tokenomics"
+    },
+    {
+      "filename": "team-vision.png",
+      "prompt": "Anonymous team silhouettes with anime aesthetic, vision of the future, technology",
+      "category": "about"
+    },
+    {
+      "filename": "company-mission.png",
+      "prompt": "Bridge between anime culture and blockchain, connecting two worlds illustration",
+      "category": "general"
+    },
+    {
+      "filename": "development-journey.png",
+      "prompt": "Anime timeline with characters progressing through milestones, adventure theme",
+      "category": "roadmap"
+    },
+    {
+      "filename": "future-expansion.png",
+      "prompt": "Global expansion visualization, anime characters around the world, international theme",
+      "category": "general"
+    },
+    {
+      "filename": "technical-architecture.png",
+      "prompt": "Technical diagram with anime elements, system architecture, blockchain integration",
+      "category": "whitepaper"
+    },
+    {
+      "filename": "whitepaper-hero.png",
+      "prompt": "Professional anime illustration for whitepaper, serious yet approachable design",
+      "category": "hero"
+    },
+    {
+      "filename": "ani-character-full.png",
+      "prompt": "Ani character full body illustration, gothic lolita, twin tails, multiple poses",
+      "category": "ani-character"
+    },
+    {
+      "filename": "ani-personality.png",
+      "prompt": "Ani character showing different emotions and personalities, expression sheet",
+      "category": "general"
+    },
+    {
+      "filename": "loading-animation.png",
+      "prompt": "Cute anime loading screen with spinning elements, AniGROK theme",
+      "category": "general"
+    },
+    {
+      "filename": "error-404.png",
+      "prompt": "Cute anime 404 error page illustration, lost character looking for page",
+      "category": "general"
+    },
+    {
+      "filename": "success-celebration.png",
+      "prompt": "Anime characters celebrating success, confetti and happy expressions",
+      "category": "general"
+    }
+  ]
+}

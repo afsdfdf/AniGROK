@@ -25,9 +25,9 @@ export default function AIGeneratorPage() {
   ]
 
   const demoGenerations = [
-    { prompt: "Gothic anime girl", image: "/images/generated-sample-1.png" },
-    { prompt: "Ani character showcase", image: "/images/ani-showcase.png" },
-    { prompt: "NFT creation process", image: "/images/nft-creation.png" },
+    { prompt: "Gothic anime girl", image: "/images/ai-generator-hero.png" },
+    { prompt: "Multiple art styles", image: "/images/generation-styles.png" },
+    { prompt: "AI brain visualization", image: "/images/ai-brain-anime.png" },
   ]
 
   const handleGenerate = async () => {
@@ -307,7 +307,7 @@ export default function AIGeneratorPage() {
                   <div className="space-y-4">
                     <div className="relative aspect-square bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl overflow-hidden">
                       <Image
-                        src={generatedImage || "/images/generated-sample-1.png"}
+                        src={generatedImage || "/images/ai-generator-hero.png"}
                         alt="AI Generated Anime Character"
                         fill
                         className="object-contain"

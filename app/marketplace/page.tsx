@@ -14,7 +14,7 @@ export default function MarketplacePage() {
       title: "Gothic Waifu #001",
       creator: "AniCreator",
       price: "150 ANI",
-      image: "/images/generated-sample-1.png",
+      image: "/images/nft-gallery-premium.png",
       rarity: "Legendary",
       likes: 234,
       tags: ["Gothic", "Twin Tails", "Rare"]
@@ -24,7 +24,7 @@ export default function MarketplacePage() {
       title: "Cyberpunk Cat Girl #045",
       creator: "CyberArtist",
       price: "89 ANI",
-      image: "/images/nft-creation.png",
+      image: "/images/collection-showcase.png",
       rarity: "Epic",
       likes: 156,
       tags: ["Cyberpunk", "Cat Girl", "Neon"]
@@ -34,7 +34,7 @@ export default function MarketplacePage() {
       title: "Magical Warrior #123",
       creator: "MagicMaker",
       price: "267 ANI",
-      image: "/images/token-economy.png",
+      image: "/images/ai-generator-hero.png",
       rarity: "Mythic",
       likes: 389,
       tags: ["Magic", "Warrior", "Fantasy"]

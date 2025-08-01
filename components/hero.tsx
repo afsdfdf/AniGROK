@@ -104,7 +104,7 @@ export function Hero() {
     <section 
       className="relative min-h-screen overflow-hidden"
       style={{
-        background: `linear-gradient(to bottom right, rgba(139, 69, 19, 0.1), rgba(75, 0, 130, 0.1)), url('/images/hero-background.png')`,
+        background: `linear-gradient(to bottom right, rgba(139, 69, 19, 0.1), rgba(75, 0, 130, 0.1)), url('/images/hero-anime-banner.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
