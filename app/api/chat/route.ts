@@ -4,7 +4,9 @@ import { checkNetworkConnectivity } from '@/lib/network-check'
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('🎯 Chat API called')
     const { message } = await request.json()
+    console.log('📝 Message received:', message)
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json(

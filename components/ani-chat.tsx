@@ -37,7 +37,11 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
 
   const scrollToBottom = () => {
     setTimeout(() => {
-      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+      messagesEndRef.current?.scrollIntoView({ 
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest"
+      })
     }, 100)
   }
 
@@ -50,6 +54,13 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
       scrollToBottom()
     }
   }, [isLoading])
+
+  // Additional scroll to bottom when component opens
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(scrollToBottom, 200)
+    }
+  }, [isOpen])
 
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isLoading) return
@@ -128,7 +139,7 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md h-[600px] bg-white rounded-3xl shadow-2xl flex flex-col">
+      <Card className="w-full max-w-md h-[600px] max-h-[90vh] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden">
         <CardHeader className="p-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-t-3xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -157,9 +168,9 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
           </div>
         </CardHeader>
 
-        <CardContent className="flex-1 p-0 flex flex-col">
+        <CardContent className="flex-1 p-0 flex flex-col min-h-0">
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -171,13 +182,14 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
                   </div>
                 )}
                 <div
-                  className={`max-w-[80%] p-3 rounded-2xl ${
+                  className={`max-w-[80%] p-3 rounded-2xl break-words word-break overflow-hidden ${
                     message.isUser
                       ? 'bg-purple-500 text-white rounded-br-sm'
                       : 'bg-purple-50 text-gray-800 rounded-bl-sm'
                   }`}
+                  style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}
                 >
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.text}</p>
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap break-words overflow-wrap-anywhere hyphens-auto">{message.text}</p>
                   <div className={`text-xs mt-1 opacity-70 ${message.isUser ? 'text-purple-100' : 'text-gray-500'}`}>
                     {message.timestamp.toLocaleTimeString('zh-CN', { 
                       hour: '2-digit', 
@@ -198,7 +210,7 @@ export function AniChat({ isOpen, onClose }: AniChatProps) {
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
                   A
                 </div>
-                <div className="bg-purple-50 text-gray-800 p-3 rounded-2xl rounded-bl-sm max-w-[80%]">
+                <div className="bg-purple-50 text-gray-800 p-3 rounded-2xl rounded-bl-sm max-w-[80%] break-words">
                   <div className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
                     <span className="text-sm">{t("chat.thinking", "Ani is thinking...")}</span>

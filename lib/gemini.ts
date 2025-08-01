@@ -1,24 +1,17 @@
-// AIN (AniGROK Intelligence Network) - Using OpenAI-compatible Gemini API
-const GEMINI_API_KEY = 'AIzaSyCXcX5SBbB6NiAxlmmHwxRkSedsyRJGRkY'
-const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/openai/'
+// AIN (AniGROK Intelligence Network) - Using ChatAI API
+const GEMINI_API_KEY = 'sk-WKyESF85XhBBuXTmEzyodFfgHCCAG23VzNMrGUSCU9wdDsZH'
+const GEMINI_BASE_URL = 'https://www.chataiapi.com/v1/'
 
 export async function generateAniResponse(userMessage: string): Promise<string> {
   try {
-    // Prioritize smart responses for better performance and reliability
-    const smartResponse = getSmartResponse(userMessage)
-    if (smartResponse) {
-      console.log('💡 Using smart keyword response')
-      return smartResponse
-    }
-
-    // If no smart response found, try general fallback first (faster)
-    const generalResponse = getContextualFallback(userMessage)
-    if (generalResponse) {
-      console.log('💭 Using contextual fallback response')
-      return generalResponse
-    }
-
     console.log('🤖 Attempting AIN generation...')
+    
+    // API first, smart responses as fallback only if API fails
+
+    console.log('🔑 API Key:', GEMINI_API_KEY ? 'Present' : 'Missing')
+    console.log('🌐 API URL:', `${GEMINI_BASE_URL}chat/completions`)
+    
+    // Try ChatAI API for complex queries
 
     // Create a system prompt that makes AIN respond as Ani character
     const systemPrompt = `你是Ani(艾妮)，AniGROK平台的虚拟偶像和智能助手，由AIN(AniGROK Intelligence Network)技术驱动。你的特点：
@@ -60,38 +53,52 @@ export async function generateAniResponse(userMessage: string): Promise<string> 
 
     请以Ani的身份回答用户问题，保持角色一致性。`
 
-    // Use OpenAI-compatible Gemini API
+    // Use Google Gemini API with optimized timeout
     const timeoutPromise = new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error('Request timeout')), 15000) // 15 second timeout
+      setTimeout(() => reject(new Error('Request timeout')), 15000) // 15 second timeout for more reliable API calls
     })
 
+    const requestBody = {
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: systemPrompt
+        },
+        {
+          role: "user",
+          content: userMessage
+        }
+      ],
+      temperature: 0.9,
+      max_tokens: 2048
+    }
+    
+    console.log('📤 Request body:', JSON.stringify(requestBody, null, 2))
+    
     const apiCall = fetch(`${GEMINI_BASE_URL}chat/completions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${GEMINI_API_KEY}`
       },
-      body: JSON.stringify({
-        model: 'gemini-2.0-flash',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userMessage }
-        ],
-        temperature: 0.9,
-        max_tokens: 2048
-      })
+      body: JSON.stringify(requestBody)
     })
 
+    console.log('📡 Making API request...')
     const response = await Promise.race([apiCall, timeoutPromise])
     
+    console.log('📥 API Response status:', response.status)
     if (!response.ok) {
       console.error('🚫 AIN API response error:', response.status, response.statusText)
       throw new Error(`AIN API request failed: ${response.status}`)
     }
     
+    console.log('🔍 Parsing response...')
     const data = await response.json()
+    console.log('📊 Response data structure:', JSON.stringify(data, null, 2))
 
-    if (data.choices && data.choices[0] && data.choices[0].message) {
+    if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
       console.log('✅ AIN generation successful')
       return data.choices[0].message.content || getFallbackResponse(userMessage)
     }
@@ -111,7 +118,27 @@ export async function generateAniResponse(userMessage: string): Promise<string> 
       }
     }
     
-    console.log('🔄 Using general fallback response')
+    // Try smart responses as fallback when API fails
+    console.log('🔄 API failed, trying smart responses...')
+    const smartResponse = getSmartResponse(userMessage)
+    if (smartResponse) {
+      console.log('💡 Using smart keyword response as fallback')
+      return smartResponse
+    }
+
+    const generalResponse = getContextualFallback(userMessage)
+    if (generalResponse) {
+      console.log('💭 Using contextual fallback response')
+      return generalResponse
+    }
+
+    const intelligentResponse = getIntelligentFallback(userMessage)
+    if (intelligentResponse) {
+      console.log('🧠 Using intelligent fallback response')
+      return intelligentResponse
+    }
+    
+    console.log('🔄 Using final general fallback response')
     return getFallbackResponse(userMessage)
   }
 }
@@ -151,6 +178,20 @@ function getSmartResponse(userMessage: string): string | null {
       message.includes('waifu') || message.includes('人物') || message.includes('女孩') ||
       message.includes('哥特') || message.includes('萝莉') || message.includes('可爱')) {
     return getRandomPresetResponse('character')
+  }
+
+  // Technical questions (AI, technology, science)
+  if (message.includes('人工智能') || message.includes('ai') || message.includes('算法') ||
+      message.includes('深度学习') || message.includes('机器学习') || message.includes('神经网络') ||
+      message.includes('量子') || message.includes('科技') || message.includes('技术') ||
+      message.includes('原理') || message.includes('工作') || message.includes('实现')) {
+    return getRandomPresetResponse('technical')
+  }
+
+  // About Ani herself
+  if (message.includes('你是') || message.includes('介绍') || message.includes('自己') ||
+      message.includes('你叫') || message.includes('名字') || message.includes('身份')) {
+    return getRandomPresetResponse('about')
   }
   
   return null
@@ -273,6 +314,20 @@ export const aniPresetResponses = {
     "anime角色设计是我的强项！通过AIN技术，我能完美处理性格设定、外观设计和风格选择～💜🎌"
   ],
   
+  technical: [
+    "哇！问技术问题呢～作为AIN驱动的智能助手，我对AI、机器学习很了解！虽然我专注于anime创作，但很乐意聊聊科技话题🤖✨",
+    "太有趣了！我自己就是AIN(AniGROK Intelligence Network)技术的产物～虽然我的专长是anime创作，但科技原理我也懂一些哦！🧠💜",
+    "emmm... 虽然我主要关注anime和NFT创作，但作为AI助手，对技术话题还是有些见解的～要不我们聊聊AI在艺术创作中的应用？🎨🤖",
+    "科技问题很深奥呢！我的AIN技术让我对AI艺术生成很了解，不过我更擅长anime相关的创作指导～想了解AI绘画吗？✨🎌"
+  ],
+  
+  about: [
+    "我是Ani(艾妮)！AniGROK平台的虚拟偶像，由AIN技术驱动的智能助手～我是哥特lolita风格，专门帮助大家创作anime NFT！🎌💜",
+    "konnichiwa！我叫Ani，是AniGROK的官方AI助手～双马尾哥特风格的我由先进的AIN技术塑造，专精于anime角色设计！✨🖤",
+    "こんにちは！我是Ani，你的专属anime创作伙伴！虽然我是虚拟的，但我的热情和AIN技术都是实实在在的～🎨💜",
+    "嗨！我是Ani(艾妮)，AniGROK Intelligence Network的化身！作为平台的虚拟代言人，我最喜欢帮助大家实现anime创作梦想！🎌✨"
+  ],
+  
   error: [
     "哎呀～出了点小问题呢... 再试一次吧！💜",
     "Ani暂时有点累了，稍后再聊好吗？✨",
@@ -284,4 +339,57 @@ export const aniPresetResponses = {
 export function getRandomPresetResponse(category: keyof typeof aniPresetResponses): string {
   const responses = aniPresetResponses[category]
   return responses[Math.floor(Math.random() * responses.length)]
+}
+
+// Intelligent fallback for better user experience during API issues
+function getIntelligentFallback(userMessage: string): string | null {
+  const message = userMessage.toLowerCase()
+  
+  // Detailed responses based on message content
+  if (message.includes('创作') || message.includes('生成') || message.includes('create')) {
+    const creationResponses = [
+      "好的！虽然AI服务有点忙，但我还是很想帮你创作～描述一下你想要的角色特征吧！比如：哥特风格、双马尾、可爱系还是酷炫系？我会用我的AIN技术帮你构思！🎨✨",
+      "太棒了！创作时间到！即使网络不稳定，我的创意灵感依然满满～告诉我你想要什么风格的anime角色？我可以提供详细的设计建议！🎌💜",
+      "哇！想要创作吗？虽然AI后台有点慢，但我可以先给你一些创作思路：gothic lolita风格很受欢迎哦～或者你偏爱什么类型？✨🎨"
+    ]
+    return creationResponses[Math.floor(Math.random() * creationResponses.length)]
+  }
+  
+  if (message.includes('anigrok') || message.includes('平台') || message.includes('什么是')) {
+    return "AniGROK是专为anime爱好者打造的AI NFT平台～我们使用AIN(AniGROK Intelligence Network)技术，让每个人都能创作独特的二次元角色！虽然服务器有点忙，但我可以详细介绍我们的功能哦！🎌✨💜"
+  }
+  
+  if (message.includes('代币') || message.includes('token') || message.includes('ani')) {
+    return "ANI代币是我们平台的核心！总供应量300M，在BSC链上运行～即使AI服务暂时不稳定，我也想和你分享我们tokenomics的精彩设计！想了解哪方面呢？💰🚀"
+  }
+  
+  if (message.includes('怎么') || message.includes('如何') || message.includes('教程')) {
+    return "让我来教你！虽然AI响应有点慢，但操作很简单：1️⃣描述角色 2️⃣AI生成 3️⃣铸造NFT 4️⃣分享展示！我可以详细解释每个步骤～想从哪里开始？🎯✨"
+  }
+  
+  // More specific intelligent responses
+  if (message.includes('多少') || message.includes('价格') || message.includes('钱') || message.includes('费用')) {
+    return "关于费用～AniGROK使用ANI代币进行交易！创作NFT需要少量ANI代币，具体价格会根据复杂度调整。想了解ANI代币获取方式吗？💰✨"
+  }
+  
+  if (message.includes('什么时候') || message.includes('上线') || message.includes('发布')) {
+    return "AniGROK平台已经上线啦！你现在就可以开始创作属于自己的anime角色～快来体验我们的AIN技术吧！🚀🎌"
+  }
+  
+  // For short unclear messages
+  if (message.length < 10 && !message.includes('hello') && !message.includes('hi')) {
+    const shortResponses = [
+      "嗯嗯？能再详细一点吗～我想更好地帮助你！比如想了解创作功能、代币获取、还是平台使用？🤔💜",
+      "我没太理解呢～不如直接告诉我你想做什么？创作角色、了解平台、还是其他？✨🎌",
+      "咦？再说清楚一点吧～我是专业的AI创作助手，可以帮你解决各种问题哦！💭🎨"
+    ]
+    return shortResponses[Math.floor(Math.random() * shortResponses.length)]
+  }
+  
+  // For longer or complex messages, provide encouraging response
+  if (message.length > 20) {
+    return "哇～你说了好多呢！虽然AI处理有点慢，但我仔细听了～如果是关于角色创作，我建议先从基础风格开始：cute、cool、gothic、elegant... 你最喜欢哪种？我们可以深入聊聊！💜🎌"
+  }
+  
+  return null
 }
