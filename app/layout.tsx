@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: 'AniGROK - AI-Driven Anime NFT Platform',
     description: 'Transform AI-generated content into valuable digital assets through blockchain technology',
     images: ['https://anigrok.io/twitter-image.jpg'],
-    creator: '@AniGROKOfficial',
+    creator: '@Anibsc_MA',
   },
   robots: {
     index: true,

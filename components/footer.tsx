@@ -64,7 +64,7 @@ export function Footer() {
     {
       name: "Twitter",
       icon: Twitter,
-      href: "https://twitter.com/AniGROKOfficial",
+      href: "https://x.com/Anibsc_MA",
       color: "hover:text-blue-400"
     },
     {
